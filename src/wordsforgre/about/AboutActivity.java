@@ -4,11 +4,8 @@ import wordsforgre.landing.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class AboutActivity extends ActionBarActivity {
 
@@ -18,7 +15,7 @@ public class AboutActivity extends ActionBarActivity {
 		setContentView(R.layout.about_activity);
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
+					.add(R.id.container, (Fragment) new AboutFragment()).commit();
 		}
 	}
 
@@ -39,22 +36,5 @@ public class AboutActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.about_fragment,
-					container, false);
-			return rootView;
-		}
 	}
 }
