@@ -3,15 +3,22 @@ package wordsforgre.about;
 import wordsforgre.landing.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class AboutActivity extends ActionBarActivity {
-
+	
+	ActionBar actionBar;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.about_activity);
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
@@ -33,6 +40,16 @@ public class AboutActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			Toast.makeText(getApplicationContext(), "Action Settings Clicked.", Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		if (id == R.id.about_add) {
+			Toast.makeText(getApplicationContext(), "About Add Clicked.", Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		if (id == R.id.home) {
+			Toast.makeText(getApplicationContext(), "About turn.", Toast.LENGTH_SHORT).show();
+			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
