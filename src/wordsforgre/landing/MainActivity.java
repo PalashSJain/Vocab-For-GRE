@@ -1,6 +1,9 @@
 package wordsforgre.landing;
 
+import wordsforgre.about.AboutActivity;
+import wordsforgre.utils.Config;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,6 +18,8 @@ import android.view.ViewGroup;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+	private static final int ABOUT_NUM = Config.ABOUT_NUM;
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -44,12 +49,20 @@ public class MainActivity extends ActionBarActivity implements
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
-		// update the main content by replacing fragments
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+		switch (position + 1) {
+		case ABOUT_NUM:
+			Intent a = new Intent(this, AboutActivity.class);
+            startActivity(a);
+			break;
+		default:
+			// update the main content by replacing fragments
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			fragmentManager
+			.beginTransaction()
+			.replace(R.id.container,
+					PlaceholderFragment.newInstance(position + 1)).commit();
+			break;
+		}
 	}
 
 	public void onSectionAttached(int number) {
@@ -60,8 +73,8 @@ public class MainActivity extends ActionBarActivity implements
 		case 2:
 			mTitle = getString(R.string.title_section2);
 			break;
-		case 3:
-			mTitle = getString(R.string.title_section3);
+		case ABOUT_NUM:
+			mTitle = getString(R.string.title_about);
 			break;
 		}
 	}
