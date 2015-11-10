@@ -14,6 +14,7 @@ import org.xml.sax.XMLReader;
 import wordsforgre.about.AboutActivity;
 import wordsforgre.allwords.AllWordsActivity;
 import wordsforgre.allwords.AllWordsDbQuery;
+import wordsforgre.quiz.QuizActivity;
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
 import wordsforgre.words.WordXMLHandler;
@@ -37,6 +38,7 @@ public class MainActivity extends ActionBarActivity implements
 
 	private static final int ABOUT_NUM = Config.ABOUT_NUM;
 	private static final int ALLWORDS_NUM = Config.ALLWORDS_NUM;
+	private static final int QUIZ_NUM = Config.QUIZ_NUM;
 	
 	List<Word> wordList = null;
 
@@ -112,6 +114,10 @@ public class MainActivity extends ActionBarActivity implements
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		switch (position + 1) {
+		case QUIZ_NUM:
+			Intent iQuiz = new Intent(this, QuizActivity.class);
+			startActivity(iQuiz);
+			break;
 		case ALLWORDS_NUM:
 			Intent iAllWords = new Intent(this, AllWordsActivity.class);
             startActivity(iAllWords);
@@ -133,10 +139,10 @@ public class MainActivity extends ActionBarActivity implements
 
 	public void onSectionAttached(int number) {
 		switch (number) {
-		case 1:
-			mTitle = getString(R.string.title_section1);
+		case QUIZ_NUM:
+			mTitle = getString(R.string.title_quiz);
 			break;
-		case 2:
+		case ALLWORDS_NUM:
 			mTitle = getString(R.string.title_all_words);
 			break;
 		case ABOUT_NUM:

@@ -36,6 +36,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wordsforgre.landing.MainActivity" />
         </activity>
+        <activity
+            android:name="wordsforgre.quiz.QuizActivity"
+            android:label="@string/title_activity_quiz" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wordsforgre.landing.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

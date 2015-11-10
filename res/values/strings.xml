@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">WordsForGRE</string>
-    <string name="title_section1">Section 1</string>
+    <string name="title_quiz">Quiz</string>
     <string name="title_all_words">All Words</string>
     <string name="title_about">About</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -12,5 +12,6 @@
     <string name="title_activity_about">About</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_all_words">All Words</string>
+    <string name="title_activity_quiz">Time to test!</string>
 
 </resources>
