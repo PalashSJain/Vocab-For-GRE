@@ -11,4 +11,9 @@ public class Config {
 	public static final String CAT_GOOD = "Mastered";
 	public static final String CAT_BAD = "Practising";
 	public static final String CAT_UGLY = "Learning";
+	
+	// XML NODE NAMES
+	public static final String XML_PARENT_NODE = "wordblock";
+	public static final String XML_CHILD_NODE_WORD = "word";
+	public static final String XML_CHILD_NODE_MEANING = "meaning";
 }

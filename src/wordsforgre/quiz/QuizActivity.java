@@ -1,6 +1,6 @@
 package wordsforgre.quiz;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import wordsforgre.allwords.AllWordsDbQuery;
 import wordsforgre.landing.R;
@@ -11,12 +11,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 public class QuizActivity extends ActionBarActivity {
 	
-	private List<Word> words;
+	private ArrayList<Word> words;
 	AllWordsDbQuery allWords;
 	ActionBar actionBar;
 

@@ -8,10 +8,15 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import wordsforgre.utils.Config;
+
 public class WordXMLHandler extends DefaultHandler {
 
 	boolean currentElement = false;
 	String currentValue = "";
+	String parent_node = Config.XML_PARENT_NODE;
+	String child_node_word = Config.XML_CHILD_NODE_WORD;
+	String child_node_meaning = Config.XML_CHILD_NODE_MEANING;
 
 	String word;
 	String meaning;
@@ -52,7 +57,7 @@ public class WordXMLHandler extends DefaultHandler {
     @Override
     public void startElement(String namespaceURI, String localName,
             String qName, Attributes atts) throws SAXException {
-        if (localName.equals("wordblock")) {
+        if (localName.equals(parent_node)) {
             // meaning new data object will be made
             this.w = new Word();
         }
@@ -67,11 +72,11 @@ public class WordXMLHandler extends DefaultHandler {
     public void endElement(String namespaceURI, String localName, String qName)
             throws SAXException {
         // Owners
-        if (localName.equals("word")) {
+        if (localName.equals(child_node_word)) {
         	w.setWord(mStringBuilder.toString().trim());
-        } else if (localName.equals("meaning")) {
+        } else if (localName.equals(child_node_meaning)) {
             w.setMeaning(mStringBuilder.toString().trim());
-        } else if (localName.equals("wordblock")) {
+        } else if (localName.equals(parent_node)) {
             this.words.add(w);
         }
         // empty our string builder

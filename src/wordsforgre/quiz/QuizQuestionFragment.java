@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import wordsforgre.landing.R;
+import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -28,10 +29,10 @@ public class QuizQuestionFragment extends Fragment {
 	private PieChart mChart;
 	private Typeface tf;
 
-	protected String[] mCategories = new String[] {"Untested", "Mastered", "Practising", "Learning"};
-	private List<Word> words = null;
+	protected String[] mCategories = new String[] {Config.CAT_NEUTRAL, Config.CAT_GOOD, Config.CAT_BAD, Config.CAT_UGLY};
+	private ArrayList<Word> words = null;
 
-	public QuizQuestionFragment(List<Word> words) {
+	public QuizQuestionFragment(ArrayList<Word> words) {
 		this.words = words;
 	}
 
@@ -94,15 +95,8 @@ public class QuizQuestionFragment extends Fragment {
 		setData(3, 100);
 
 		mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-		// mChart.spin(2000, 0, 360);
 		
 		mChart.getLegend().setEnabled(false);
-
-//		Legend l = mChart.getLegend();
-//		l.setPosition(LegendPosition.RIGHT_OF_CHART);
-//		l.setXEntrySpace(7f);
-//		l.setYEntrySpace(0f);
-//		l.setYOffset(0f);
 	}
 
 	private void setData(int count, float range) {

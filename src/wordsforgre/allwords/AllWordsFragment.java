@@ -1,6 +1,6 @@
 package wordsforgre.allwords;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import wordsforgre.words.Word;
 import android.os.Bundle;
@@ -8,11 +8,11 @@ import android.support.v4.app.ListFragment;
 
 public class AllWordsFragment extends ListFragment {
 
-	private List<Word> words;
+	private ArrayList<Word> words;
 	AllWordsDbQuery allWords;
 	AllWordsAdapter adapter;
 
-	public AllWordsFragment(List<Word> words) {
+	public AllWordsFragment(ArrayList<Word> words) {
 		this.words = words;
 	}
 
