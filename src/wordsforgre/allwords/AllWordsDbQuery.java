@@ -39,7 +39,6 @@ public class AllWordsDbQuery {
 		try {
 			long insertId = database.insertOrThrow(AllWordsDbCRUD.TABLE_WORDS,
 					null, values);
-			Log.i("ADD UNIQUE WORDS", "" + insertId);
 			if (insertId != -1) {
 				Cursor cursor = database.query(AllWordsDbCRUD.TABLE_WORDS,
 						allColumns,
@@ -62,8 +61,8 @@ public class AllWordsDbQuery {
 				+ " = " + id, null);
 	}
 
-	public List<Word> getAllWords() {
-		List<Word> words = new ArrayList<Word>();
+	public ArrayList<Word> getAllWords() {
+		ArrayList<Word> words = new ArrayList<Word>();
 
 		Cursor cursor = database.query(AllWordsDbCRUD.TABLE_WORDS, allColumns,
 				null, null, null, null, null);
@@ -72,7 +71,6 @@ public class AllWordsDbQuery {
 		while (!cursor.isAfterLast()) {
 			long id = cursor.getLong(0);
 			Word w = cursorToWord(cursor, id);
-			System.out.println("word: " + w.getWord());
 			words.add(w);
 			cursor.moveToNext();
 		}

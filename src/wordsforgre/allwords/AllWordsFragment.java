@@ -12,16 +12,14 @@ public class AllWordsFragment extends ListFragment {
 	AllWordsDbQuery allWords;
 	AllWordsAdapter adapter;
 
+	public AllWordsFragment(List<Word> words) {
+		this.words = words;
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (savedInstanceState == null) {
-			allWords = new AllWordsDbQuery(getContext());
-			allWords.open();
-			words = allWords.getAllWords();
-			allWords.close();
-			adapter = new AllWordsAdapter(getContext(), words);
-			setListAdapter(adapter);
-		}
+		adapter = new AllWordsAdapter(getContext(), words);
+		setListAdapter(adapter);
 	}
 }

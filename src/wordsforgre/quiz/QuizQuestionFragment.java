@@ -1,8 +1,10 @@
 package wordsforgre.quiz;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import wordsforgre.landing.R;
+import wordsforgre.words.Word;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -25,13 +28,21 @@ public class QuizQuestionFragment extends Fragment {
 	private PieChart mChart;
 	private Typeface tf;
 
-	protected String[] mCategories = new String[] {"Unread", "Mastered", "Practising", "Learning"};
+	protected String[] mCategories = new String[] {"Untested", "Mastered", "Practising", "Learning"};
+	private List<Word> words = null;
+
+	public QuizQuestionFragment(List<Word> words) {
+		this.words = words;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.quiz_question_fragment,
 				container, false);
+		
+		TextView tvQuizWord = (TextView) rootView.findViewById(R.id.tvQuizWord);
+//		tvQuizWord.setText(getWordToAsk());
 		
 		Button bShowMeaning = (Button) rootView.findViewById(R.id.bQuizCheckMeaning);
 		bShowMeaning.setOnClickListener(new OnClickListener() {

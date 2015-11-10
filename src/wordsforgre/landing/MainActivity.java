@@ -1,6 +1,7 @@
 package wordsforgre.landing;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -21,7 +22,9 @@ import wordsforgre.words.WordXMLHandler;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -53,6 +56,10 @@ public class MainActivity extends ActionBarActivity implements
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
+	private ArrayList<Word> words = null;
+	private SharedPreferences sharedpreferences;
+	private String was_previously_started;
+	public static final String MyPREFERENCES = "MyPrefs" ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +74,14 @@ public class MainActivity extends ActionBarActivity implements
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 		
-		copyWordsFromXMLToDbThread();
+		sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        Boolean wasPreviouslyStarted = sharedpreferences.getBoolean(was_previously_started, false);
+        if (!wasPreviouslyStarted) {
+        	copyWordsFromXMLToDbThread();
+        	SharedPreferences.Editor editor = sharedpreferences.edit();
+        	editor.putBoolean(was_previously_started, true);
+        	editor.commit();
+        }
 	}
 	
 	private void copyWordsFromXMLToDbThread() {
@@ -119,7 +133,14 @@ public class MainActivity extends ActionBarActivity implements
 			startActivity(iQuiz);
 			break;
 		case ALLWORDS_NUM:
+			AllWordsDbQuery allWords = new AllWordsDbQuery(this);
+			allWords.open();
+			words = allWords.getAllWords();
+			allWords.close();
 			Intent iAllWords = new Intent(this, AllWordsActivity.class);
+			Bundle bundle = new Bundle();
+			bundle.putParcelableArrayList("data", words);
+			iAllWords.putExtras(bundle);
             startActivity(iAllWords);
 			break;
 		case ABOUT_NUM:

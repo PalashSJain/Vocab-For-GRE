@@ -1,6 +1,6 @@
 package wordsforgre.allwords;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import wordsforgre.landing.R;
 import wordsforgre.words.Word;
@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 public class AllWordsActivity extends ActionBarActivity {
 	
-	private List<Word> words;
+	private ArrayList<Word> words;
 	AllWordsDbQuery allWords;
 	AllWordsAdapter adapter;
 	ActionBar actionBar;
@@ -25,7 +25,11 @@ public class AllWordsActivity extends ActionBarActivity {
 		setContentView(R.layout.all_words_activity);
 		actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		getSupportFragmentManager().beginTransaction().replace(R.id.container, new AllWordsFragment()).commit();
+		
+		Bundle bundle = getIntent().getExtras();
+		words = bundle.getParcelableArrayList("data");
+		
+		getSupportFragmentManager().beginTransaction().replace(R.id.container, new AllWordsFragment(words)).commit();
 	}
 
 	@Override

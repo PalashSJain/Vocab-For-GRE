@@ -1,15 +1,23 @@
 package wordsforgre.quiz;
 
+import java.util.List;
+
+import wordsforgre.allwords.AllWordsDbQuery;
 import wordsforgre.landing.R;
+import wordsforgre.words.Word;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class QuizActivity extends ActionBarActivity {
 	
+	private List<Word> words;
+	AllWordsDbQuery allWords;
 	ActionBar actionBar;
 
 	@Override
@@ -20,8 +28,12 @@ public class QuizActivity extends ActionBarActivity {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.quiz_activity);
 		if (savedInstanceState == null) {
+			allWords = new AllWordsDbQuery(this);
+			allWords.open();
+			words = allWords.getAllWords();
+			allWords.close();
 			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new QuizQuestionFragment()).commit();
+					.add(R.id.container, new QuizQuestionFragment(words)).commit();
 		}
 	}
 
