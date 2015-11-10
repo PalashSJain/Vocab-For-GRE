@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -29,10 +32,22 @@ public class QuizQuestionFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.quiz_question_fragment,
 				container, false);
+		
+		Button bShowMeaning = (Button) rootView.findViewById(R.id.bQuizCheckMeaning);
+		bShowMeaning.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showMeaning(v);
+			}
+		});
 
 		mChart = (PieChart) rootView.findViewById(R.id.chart1);
 		populatePieChart();
 		return rootView;
+	}
+	
+	private void showMeaning(View v) {
+		Toast.makeText(getContext(), "ShowMeaning Baby", Toast.LENGTH_LONG).show();
 	}
 
 	private void populatePieChart() {
@@ -106,7 +121,6 @@ public class QuizQuestionFragment extends Fragment {
 		dataSet.setSelectionShift(5f);
 
 		// add a lot of colors
-		ArrayList<Integer> colors = new ArrayList<Integer>();
 		dataSet.setColors(new int[] { Color.rgb(91, 146, 229), Color.rgb(3, 192, 60), Color.rgb(255, 191, 0), Color.rgb(227, 38, 54) });
 		// dataSet.setSelectionShift(0f);
 
@@ -122,4 +136,5 @@ public class QuizQuestionFragment extends Fragment {
 
 		mChart.invalidate();
 	}
+	
 }
