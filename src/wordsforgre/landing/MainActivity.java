@@ -1,8 +1,24 @@
 package wordsforgre.landing;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+
 import wordsforgre.about.AboutActivity;
+import wordsforgre.allwords.AllWordsActivity;
+import wordsforgre.allwords.AllWordsDbQuery;
 import wordsforgre.utils.Config;
+import wordsforgre.words.Word;
+import wordsforgre.words.WordXMLHandler;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +36,9 @@ public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	private static final int ABOUT_NUM = Config.ABOUT_NUM;
+	private static final int ALLWORDS_NUM = Config.ALLWORDS_NUM;
+	
+	List<Word> wordList = null;
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -45,14 +64,61 @@ public class MainActivity extends ActionBarActivity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
+		
+		copyWordsFromXMLToDbThread();
+	}
+	
+	private void copyWordsFromXMLToDbThread() {
+		final Context c = this;
+		Thread thread = new Thread(new Runnable(){
+			@Override
+			public void run(){
+				try {
+					InputSource inputSource = new InputSource(getAssets()
+							.open("words.xml"));
+					// instantiate SAX parser
+					SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+					SAXParser saxParser = saxParserFactory.newSAXParser();
+					
+					// get the XML reader
+					XMLReader xmlReader = saxParser.getXMLReader();
+					
+					// prepare and set the XML content or data handler before
+					// parsing
+					WordXMLHandler xmlContentHandler = new WordXMLHandler();
+					xmlReader.setContentHandler(xmlContentHandler);
+					
+					// parse the XML input source
+					xmlReader.parse(inputSource);
+					
+					// put the parsed data to a List
+					wordList = xmlContentHandler.getParsedData();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (ParserConfigurationException e) {
+					e.printStackTrace();
+				} catch (SAXException e) {
+					e.printStackTrace();
+				}
+				AllWordsDbQuery allWords = new AllWordsDbQuery(c);
+				allWords.open();
+				allWords.addWordsToDb(wordList);
+				allWords.close();
+			}
+		});
+		thread.start();
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		switch (position + 1) {
+		case ALLWORDS_NUM:
+			Intent iAllWords = new Intent(this, AllWordsActivity.class);
+            startActivity(iAllWords);
+			break;
 		case ABOUT_NUM:
-			Intent a = new Intent(this, AboutActivity.class);
-            startActivity(a);
+			Intent iAbout = new Intent(this, AboutActivity.class);
+            startActivity(iAbout);
 			break;
 		default:
 			// update the main content by replacing fragments
@@ -71,7 +137,7 @@ public class MainActivity extends ActionBarActivity implements
 			mTitle = getString(R.string.title_section1);
 			break;
 		case 2:
-			mTitle = getString(R.string.title_section2);
+			mTitle = getString(R.string.title_all_words);
 			break;
 		case ABOUT_NUM:
 			mTitle = getString(R.string.title_about);

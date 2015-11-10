@@ -18,12 +18,20 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="wordsforgre.about.AboutActivity"
             android:label="@string/title_activity_about" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wordsforgre.landing.MainActivity" />
+        </activity>
+        <activity
+            android:name="wordsforgre.allwords.AllWordsActivity"
+            android:label="@string/title_activity_all_words" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wordsforgre.landing.MainActivity" />
