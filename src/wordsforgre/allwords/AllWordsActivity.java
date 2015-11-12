@@ -2,6 +2,7 @@ package wordsforgre.allwords;
 
 import java.util.ArrayList;
 
+import wordsforgre.allwords.AllWordsFragment.OnFragmentInteractionListener;
 import wordsforgre.landing.R;
 import wordsforgre.words.Word;
 import android.os.Bundle;
@@ -11,9 +12,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class AllWordsActivity extends ActionBarActivity {
+public class AllWordsActivity extends ActionBarActivity implements OnFragmentInteractionListener{
 	
-	private ArrayList<Word> words;
+//	private ArrayList<Word> words;
 	AllWordsDbQuery allWords;
 	AllWordsAdapter adapter;
 	ActionBar actionBar;
@@ -25,11 +26,12 @@ public class AllWordsActivity extends ActionBarActivity {
 		setContentView(R.layout.all_words_activity);
 		actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
+//		
+//		Bundle bundle = getIntent().getExtras();
+//		words = bundle.getParcelableArrayList("data");
 		
-		Bundle bundle = getIntent().getExtras();
-		words = bundle.getParcelableArrayList("data");
-		
-		getSupportFragmentManager().beginTransaction().replace(R.id.container, new AllWordsFragment(words)).commit();
+//		getSupportFragmentManager().beginTransaction().replace(R.id.container, new AllWordsFragment(words)).commit();
+		getSupportFragmentManager().beginTransaction().replace(R.id.container, new AllWordsFragment()).commit();
 	}
 
 	@Override
@@ -53,5 +55,10 @@ public class AllWordsActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onFragmentInteraction(int mnuId, long l) {
+		// TODO ??????
 	}
 }

@@ -133,14 +133,14 @@ public class MainActivity extends ActionBarActivity implements
 			startActivity(iQuiz);
 			break;
 		case ALLWORDS_NUM:
-			AllWordsDbQuery allWords = new AllWordsDbQuery(this);
-			allWords.open();
-			words = allWords.getAllWords();
-			allWords.close();
+//			AllWordsDbQuery allWords = new AllWordsDbQuery(this);
+//			allWords.open();
+//			words = allWords.getAllWords();
+//			allWords.close();
 			Intent iAllWords = new Intent(this, AllWordsActivity.class);
-			Bundle bundle = new Bundle();
-			bundle.putParcelableArrayList("data", words);
-			iAllWords.putExtras(bundle);
+//			Bundle bundle = new Bundle();
+//			bundle.putParcelableArrayList("data", words);
+//			iAllWords.putExtras(bundle);
             startActivity(iAllWords);
 			break;
 		case ABOUT_NUM:

@@ -10,5 +10,6 @@
     -->
     <dimen name="navigation_drawer_width">240dp</dimen>
     <dimen name="wordsforgre_small_margin">3dp</dimen>
+    <dimen name="wordsforgre_medium_margin">6dp</dimen>
 
 </resources>
