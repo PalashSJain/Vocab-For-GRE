@@ -1,10 +1,8 @@
 package wordsforgre.allwords;
 
-import java.util.ArrayList;
-
 import wordsforgre.allwords.AllWordsFragment.OnFragmentInteractionListener;
+import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
-import wordsforgre.words.Word;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -26,11 +24,6 @@ public class AllWordsActivity extends ActionBarActivity implements OnFragmentInt
 		setContentView(R.layout.all_words_activity);
 		actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-//		
-//		Bundle bundle = getIntent().getExtras();
-//		words = bundle.getParcelableArrayList("data");
-		
-//		getSupportFragmentManager().beginTransaction().replace(R.id.container, new AllWordsFragment(words)).commit();
 		getSupportFragmentManager().beginTransaction().replace(R.id.container, new AllWordsFragment()).commit();
 	}
 

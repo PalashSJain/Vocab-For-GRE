@@ -2,6 +2,7 @@ package wordsforgre.allwords;
 
 import java.util.ArrayList;
 
+import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
 import wordsforgre.words.Word;
 import android.app.Activity;
@@ -69,7 +70,7 @@ public class AllWordsFragment extends ListFragment {
 
 		if (mListener != null) {
 			mListener.onFragmentInteraction(l.getId(), adapter
-					.getItem(position).getId());
+					.getItem(position).id);
 		}
 	}
 

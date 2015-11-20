@@ -1,5 +1,6 @@
 package wordsforgre.allwords;
 
+import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
 import wordsforgre.words.Word;
 import android.content.Context;
@@ -54,8 +55,8 @@ public class AllWordsAdapter extends ArrayAdapter<Word> implements Filterable{
 		final Word word = getItem(pos);
 		final ViewSwitcher options = (ViewSwitcher) row.findViewById(R.id.vsOptions);
 		final ViewSwitcher wordAndMeaning = (ViewSwitcher) row.findViewById(R.id.vsWord);
-		holder.tvWord.setText(word.getWord());
-		holder.tvMeaning.setText(word.getMeaning());
+		holder.tvWord.setText(word.word);
+		holder.tvMeaning.setText(word.meaning);
 		holder.ibDelete.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

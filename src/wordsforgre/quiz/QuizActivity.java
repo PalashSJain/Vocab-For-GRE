@@ -1,10 +1,7 @@
 package wordsforgre.quiz;
 
-import java.util.ArrayList;
-
-import wordsforgre.allwords.AllWordsDbQuery;
+import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
-import wordsforgre.words.Word;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -14,9 +11,8 @@ import android.view.MenuItem;
 
 public class QuizActivity extends ActionBarActivity {
 	
-	private ArrayList<Word> words;
-	AllWordsDbQuery allWords;
 	ActionBar actionBar;
+	AllWordsDbQuery quizWords;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +21,10 @@ public class QuizActivity extends ActionBarActivity {
 		actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.quiz_activity);
+		
 		if (savedInstanceState == null) {
-			allWords = new AllWordsDbQuery(this);
-			allWords.open();
-			words = allWords.getAllWords();
-			allWords.close();
 			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new QuizQuestionFragment(words)).commit();
+					.add(R.id.container, new QuizQuestionFragment()).commit();
 		}
 	}
 

@@ -73,9 +73,9 @@ public class WordXMLHandler extends DefaultHandler {
             throws SAXException {
         // Owners
         if (localName.equals(child_node_word)) {
-        	w.setWord(mStringBuilder.toString().trim());
+        	w.word = mStringBuilder.toString().trim();
         } else if (localName.equals(child_node_meaning)) {
-            w.setMeaning(mStringBuilder.toString().trim());
+            w.meaning = mStringBuilder.toString().trim();
         } else if (localName.equals(parent_node)) {
             this.words.add(w);
         }

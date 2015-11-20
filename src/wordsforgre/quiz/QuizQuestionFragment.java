@@ -1,8 +1,10 @@
 package wordsforgre.quiz;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
+import wordsforgre.database.AllWordsDbQuery;
+import wordsforgre.database.QuizWordsDbQuery;
 import wordsforgre.landing.R;
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
@@ -16,7 +18,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -29,11 +30,12 @@ public class QuizQuestionFragment extends Fragment {
 	private PieChart mChart;
 	private Typeface tf;
 
-	protected String[] mCategories = new String[] {Config.CAT_NEUTRAL, Config.CAT_GOOD, Config.CAT_BAD, Config.CAT_UGLY};
-	private ArrayList<Word> words = null;
+	protected String[] mCategories = new String[] { Config.CAT_NEUTRAL,
+			Config.CAT_GOOD, Config.CAT_BAD, Config.CAT_UGLY };
 
-	public QuizQuestionFragment(ArrayList<Word> words) {
-		this.words = words;
+	public QuizQuestionFragment() {
+		// TODO Auto-generated constructor stub
+		// this.words = getWordsFromSomewhere();
 	}
 
 	@Override
@@ -41,15 +43,38 @@ public class QuizQuestionFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.quiz_question_fragment,
 				container, false);
-		
+
+		final Word w = getRandomRecordFromQuizTable();
+
 		TextView tvQuizWord = (TextView) rootView.findViewById(R.id.tvQuizWord);
-//		tvQuizWord.setText(getWordToAsk());
-		
-		Button bShowMeaning = (Button) rootView.findViewById(R.id.bQuizCheckMeaning);
+		tvQuizWord.setText(w.word);
+
+		TextView tvWordType = (TextView) rootView
+				.findViewById(R.id.tvQuizWordCategory);
+		tvWordType.setText(w.category);
+		switch (w.category) {
+		case Config.CAT_GOOD:
+			tvWordType.setTextColor(Config.COLOR_GREEN);
+			break;
+		case Config.CAT_BAD:
+			tvWordType.setTextColor(Config.COLOR_YELLOW);
+			break;
+		case Config.CAT_UGLY:
+			tvWordType.setTextColor(Config.COLOR_RED);
+			break;
+		default:
+			tvWordType.setTextColor(Config.COLOR_BLUE);
+			break;
+		}
+
+		Button bShowMeaning = (Button) rootView
+				.findViewById(R.id.bQuizCheckMeaning);
 		bShowMeaning.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				showMeaning(v);
+				getActivity().getSupportFragmentManager().beginTransaction()
+						.replace(R.id.container, new QuizAnswerFragment(w))
+						.commit();
 			}
 		});
 
@@ -57,9 +82,20 @@ public class QuizQuestionFragment extends Fragment {
 		populatePieChart();
 		return rootView;
 	}
-	
-	private void showMeaning(View v) {
-		Toast.makeText(getContext(), "ShowMeaning Baby", Toast.LENGTH_LONG).show();
+
+	private Word getRandomRecordFromQuizTable() {
+		Random random = new Random();
+		QuizWordsDbQuery quizWords = new QuizWordsDbQuery(getContext());
+		quizWords.open();
+		int noOfRecords = quizWords.getCount();
+		long rowIndex = random.nextInt(noOfRecords);
+		long allWordId = quizWords.getAllWordsIDAtIndex(rowIndex);
+		quizWords.close();
+		AllWordsDbQuery allWords = new AllWordsDbQuery(getContext());
+		allWords.open();
+		Word w = allWords.getWordAtIndex(allWordId);
+		allWords.close();
+		return w;
 	}
 
 	private void populatePieChart() {
@@ -74,7 +110,7 @@ public class QuizQuestionFragment extends Fragment {
 
 		mChart.setCenterTextTypeface(Typeface.createFromAsset(getActivity()
 				.getAssets(), "OpenSans-Light.ttf"));
-//		mChart.setCenterText(generateCenterSpannableText());
+		// mChart.setCenterText(generateCenterSpannableText());
 
 		mChart.setDrawHoleEnabled(true);
 		mChart.setHoleColorTransparent(true);
@@ -95,7 +131,7 @@ public class QuizQuestionFragment extends Fragment {
 		setData(3, 100);
 
 		mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-		
+
 		mChart.getLegend().setEnabled(false);
 	}
 
@@ -108,9 +144,9 @@ public class QuizQuestionFragment extends Fragment {
 		// IMPORTANT: In a PieChart, no values (Entry) should have the same
 		// xIndex (even if from different DataSets), since no values can be
 		// drawn above each other.
-//		for (int i = 0; i < count + 1; i++) {
-//			yVals1.add(new Entry((float) (Math.random() * mult) + mult / 5, i));
-//		}
+		// for (int i = 0; i < count + 1; i++) {
+		// yVals1.add(new Entry((float) (Math.random() * mult) + mult / 5, i));
+		// }
 		yVals1.add(new Entry(20, 0));
 		yVals1.add(new Entry(15, 1));
 		yVals1.add(new Entry(10, 2));
@@ -126,7 +162,8 @@ public class QuizQuestionFragment extends Fragment {
 		dataSet.setSelectionShift(5f);
 
 		// add a lot of colors
-		dataSet.setColors(new int[] { Color.rgb(91, 146, 229), Color.rgb(3, 192, 60), Color.rgb(255, 191, 0), Color.rgb(227, 38, 54) });
+		dataSet.setColors(new int[] { Config.COLOR_BLUE, Config.COLOR_GREEN,
+				Config.COLOR_YELLOW, Config.COLOR_RED });
 		// dataSet.setSelectionShift(0f);
 
 		PieData data = new PieData(xVals, dataSet);
@@ -141,5 +178,5 @@ public class QuizQuestionFragment extends Fragment {
 
 		mChart.invalidate();
 	}
-	
+
 }

@@ -5,19 +5,23 @@ import android.os.Parcelable;
 import wordsforgre.utils.Config;
 
 public class Word implements Parcelable {
-	private String word;
-	private String meaning;
-	private long id;
-	private String category = Config.CAT_NEUTRAL;
+	public String word;
+	public String meaning;
+	public long id;
+	public String category;// = Config.CAT_NEUTRAL;
+	public long actual = 1, expected = 1;
+	public long allWordId = -1;
 	
 	public Word(String w, String m) {
 		this.word = w;
 		this.meaning = m;
+		this.category = Config.CAT_NEUTRAL;
 	}
 
 	public Word() {
 		this.word = null;
 		this.meaning = null;
+		this.category = Config.CAT_NEUTRAL;
 	}
 
 	public Word(Parcel in) {
@@ -27,36 +31,13 @@ public class Word implements Parcelable {
 		this.category = in.readString();
 	}
 
-	public String getMeaning() {
-		return meaning;
-	}
-
-	public void setMeaning(String comment) {
-		this.meaning = comment;
-	}
-
-	public String getWord() {
-		return word;
-	}
-
-	public void setWord(String word) {
-		this.word = word;
-	}
-
-	public long getId() {
-		return id;
-	}
-	
-	public void setId(long id) {
+	public Word(long id, String word, String meaning, long actual, long expected) {
 		this.id = id;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
+		this.word = word;
+		this.meaning = meaning;
+		this.actual = actual;
+		this.expected = expected;
+		this.category = Config.CAT_NEUTRAL;
 	}
 
 	@Override

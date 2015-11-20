@@ -1,7 +1,6 @@
 package wordsforgre.landing;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -14,7 +13,9 @@ import org.xml.sax.XMLReader;
 
 import wordsforgre.about.AboutActivity;
 import wordsforgre.allwords.AllWordsActivity;
-import wordsforgre.allwords.AllWordsDbQuery;
+import wordsforgre.database.AllWordsDbQuery;
+import wordsforgre.database.QuizWordsDbQuery;
+import wordsforgre.database.WordsDbCRUD;
 import wordsforgre.quiz.QuizActivity;
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
@@ -23,8 +24,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -44,6 +45,7 @@ public class MainActivity extends ActionBarActivity implements
 	private static final int QUIZ_NUM = Config.QUIZ_NUM;
 	
 	List<Word> wordList = null;
+	final Context c = this;
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -56,10 +58,9 @@ public class MainActivity extends ActionBarActivity implements
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
-	private ArrayList<Word> words = null;
 	private SharedPreferences sharedpreferences;
 	private String was_previously_started;
-	public static final String MyPREFERENCES = "MyPrefs" ;
+	public static final String MyPREFERENCES = "MyPrefs";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,51 +79,56 @@ public class MainActivity extends ActionBarActivity implements
         Boolean wasPreviouslyStarted = sharedpreferences.getBoolean(was_previously_started, false);
         if (!wasPreviouslyStarted) {
         	copyWordsFromXMLToDbThread();
+        	copyRecordsFromAllWordsToQuiz();
         	SharedPreferences.Editor editor = sharedpreferences.edit();
         	editor.putBoolean(was_previously_started, true);
         	editor.commit();
         }
 	}
 	
+	private void copyRecordsFromAllWordsToQuiz() {
+		QuizWordsDbQuery quizWords = new QuizWordsDbQuery(
+				getApplicationContext());
+		quizWords.open();
+		long[] ids = quizWords.getAllIdsFromAllWords();
+		for (int i = 0; i < ids.length; i++) {
+			quizWords.joinRecordsFromAllWordsToQuiz(ids[i]);
+		}
+		quizWords.close();
+	}
+
 	private void copyWordsFromXMLToDbThread() {
-		final Context c = this;
-		Thread thread = new Thread(new Runnable(){
-			@Override
-			public void run(){
-				try {
-					InputSource inputSource = new InputSource(getAssets()
-							.open("words.xml"));
-					// instantiate SAX parser
-					SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-					SAXParser saxParser = saxParserFactory.newSAXParser();
-					
-					// get the XML reader
-					XMLReader xmlReader = saxParser.getXMLReader();
-					
-					// prepare and set the XML content or data handler before
-					// parsing
-					WordXMLHandler xmlContentHandler = new WordXMLHandler();
-					xmlReader.setContentHandler(xmlContentHandler);
-					
-					// parse the XML input source
-					xmlReader.parse(inputSource);
-					
-					// put the parsed data to a List
-					wordList = xmlContentHandler.getParsedData();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (ParserConfigurationException e) {
-					e.printStackTrace();
-				} catch (SAXException e) {
-					e.printStackTrace();
-				}
-				AllWordsDbQuery allWords = new AllWordsDbQuery(c);
-				allWords.open();
-				allWords.addWordsToDb(wordList);
-				allWords.close();
-			}
-		});
-		thread.start();
+		try {
+			InputSource inputSource = new InputSource(getAssets().open(
+					"words.xml"));
+			// instantiate SAX parser
+			SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+			SAXParser saxParser = saxParserFactory.newSAXParser();
+
+			// get the XML reader
+			XMLReader xmlReader = saxParser.getXMLReader();
+
+			// prepare and set the XML content or data handler before
+			// parsing
+			WordXMLHandler xmlContentHandler = new WordXMLHandler();
+			xmlReader.setContentHandler(xmlContentHandler);
+
+			// parse the XML input source
+			xmlReader.parse(inputSource);
+
+			// put the parsed data to a List
+			wordList = xmlContentHandler.getParsedData();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		}
+		AllWordsDbQuery allWords = new AllWordsDbQuery(getApplicationContext());
+		allWords.open();
+		allWords.addWordsToDb(wordList);
+		allWords.close();
 	}
 
 	@Override
@@ -133,14 +139,7 @@ public class MainActivity extends ActionBarActivity implements
 			startActivity(iQuiz);
 			break;
 		case ALLWORDS_NUM:
-//			AllWordsDbQuery allWords = new AllWordsDbQuery(this);
-//			allWords.open();
-//			words = allWords.getAllWords();
-//			allWords.close();
 			Intent iAllWords = new Intent(this, AllWordsActivity.class);
-//			Bundle bundle = new Bundle();
-//			bundle.putParcelableArrayList("data", words);
-//			iAllWords.putExtras(bundle);
             startActivity(iAllWords);
 			break;
 		case ABOUT_NUM:
