@@ -37,16 +37,16 @@ public class QuizAnswerFragment extends Fragment {
 		tvAnswerWord.setText(w.word.toUpperCase());
 		switch (w.category) {
 		case Config.CAT_GOOD:
-			tvAnswerWord.setTextColor(Config.COLOR_GREEN);
+			tvAnswerWord.setTextColor(Config.COLOR_GOOD);
 			break;
 		case Config.CAT_BAD:
-			tvAnswerWord.setTextColor(Config.COLOR_YELLOW);
+			tvAnswerWord.setTextColor(Config.COLOR_BAD);
 			break;
 		case Config.CAT_UGLY:
-			tvAnswerWord.setTextColor(Config.COLOR_RED);
+			tvAnswerWord.setTextColor(Config.COLOR_UGLY);
 			break;
 		default:
-			tvAnswerWord.setTextColor(Config.COLOR_BLUE);
+			tvAnswerWord.setTextColor(Config.COLOR_DEFAULT);
 			break;
 		}
 

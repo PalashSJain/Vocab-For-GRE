@@ -104,20 +104,20 @@ public class MainFragment extends Fragment {
 
 		switch (w.category) {
 		case Config.CAT_GOOD:
-			tvWord.setTextColor(Config.COLOR_GREEN);
-			tvMeaning.setTextColor(Config.COLOR_GREEN);
+			tvWord.setTextColor(Config.COLOR_GOOD);
+			tvMeaning.setTextColor(Config.COLOR_GOOD);
 			break;
 		case Config.CAT_BAD:
-			tvWord.setTextColor(Config.COLOR_YELLOW);
-			tvMeaning.setTextColor(Config.COLOR_YELLOW);
+			tvWord.setTextColor(Config.COLOR_BAD);
+			tvMeaning.setTextColor(Config.COLOR_BAD);
 			break;
 		case Config.CAT_UGLY:
-			tvWord.setTextColor(Config.COLOR_RED);
-			tvMeaning.setTextColor(Config.COLOR_RED);
+			tvWord.setTextColor(Config.COLOR_UGLY);
+			tvMeaning.setTextColor(Config.COLOR_UGLY);
 			break;
 		default:
-			tvWord.setTextColor(Config.COLOR_BLUE);
-			tvMeaning.setTextColor(Config.COLOR_BLUE);
+			tvWord.setTextColor(Config.COLOR_DEFAULT);
+			tvMeaning.setTextColor(Config.COLOR_DEFAULT);
 			break;
 		}
 

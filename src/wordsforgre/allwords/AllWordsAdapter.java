@@ -61,20 +61,20 @@ public class AllWordsAdapter extends ArrayAdapter<Word> implements Filterable{
 		
 		switch (word.category) {
 		case Config.CAT_GOOD:
-			holder.tvWord.setTextColor(Config.COLOR_GREEN);
-			holder.tvMeaning.setTextColor(Config.COLOR_GREEN);
+			holder.tvWord.setTextColor(Config.COLOR_GOOD);
+			holder.tvMeaning.setTextColor(Config.COLOR_GOOD);
 			break;
 		case Config.CAT_BAD:
-			holder.tvWord.setTextColor(Config.COLOR_YELLOW);
-			holder.tvMeaning.setTextColor(Config.COLOR_YELLOW);
+			holder.tvWord.setTextColor(Config.COLOR_BAD);
+			holder.tvMeaning.setTextColor(Config.COLOR_BAD);
 			break;
 		case Config.CAT_UGLY:
-			holder.tvWord.setTextColor(Config.COLOR_RED);
-			holder.tvMeaning.setTextColor(Config.COLOR_RED);
+			holder.tvWord.setTextColor(Config.COLOR_UGLY);
+			holder.tvMeaning.setTextColor(Config.COLOR_UGLY);
 			break;
 		default:
-			holder.tvWord.setTextColor(Config.COLOR_BLUE);
-			holder.tvMeaning.setTextColor(Config.COLOR_BLUE);
+			holder.tvWord.setTextColor(Config.COLOR_DEFAULT);
+			holder.tvMeaning.setTextColor(Config.COLOR_DEFAULT);
 			break;
 		}
 		

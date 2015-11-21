@@ -20,9 +20,9 @@ public class Config {
 	public static final String XML_CHILD_NODE_MEANING = "meaning";
 	
 	// Colors
-	public static final int COLOR_BLUE = Color.rgb(91, 146, 229);
-	public static final int COLOR_GREEN = Color.rgb(3, 192, 60); //03C03C
-	public static final int COLOR_RED = Color.rgb(227, 38, 54);
-	public static final int COLOR_YELLOW = Color.rgb(255, 191, 0);
+	public static final int COLOR_DEFAULT = Color.rgb(91, 146, 229);
+	public static final int COLOR_GOOD = Color.rgb(3, 192, 60); //03C03C
+	public static final int COLOR_UGLY = Color.rgb(227, 38, 54);
+	public static final int COLOR_BAD = Color.rgb(255, 191, 0);
 	
 }

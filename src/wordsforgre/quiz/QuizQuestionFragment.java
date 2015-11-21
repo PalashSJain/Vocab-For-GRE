@@ -68,16 +68,16 @@ public class QuizQuestionFragment extends Fragment {
 		tvQuizWord.setText(w.word.toUpperCase());
 		switch (w.category) {
 		case Config.CAT_GOOD:
-			tvQuizWord.setTextColor(Config.COLOR_GREEN);
+			tvQuizWord.setTextColor(Config.COLOR_GOOD);
 			break;
 		case Config.CAT_BAD:
-			tvQuizWord.setTextColor(Config.COLOR_YELLOW);
+			tvQuizWord.setTextColor(Config.COLOR_BAD);
 			break;
 		case Config.CAT_UGLY:
-			tvQuizWord.setTextColor(Config.COLOR_RED);
+			tvQuizWord.setTextColor(Config.COLOR_UGLY);
 			break;
 		default:
-			tvQuizWord.setTextColor(Config.COLOR_BLUE);
+			tvQuizWord.setTextColor(Config.COLOR_DEFAULT);
 			break;
 		}
 
@@ -156,16 +156,16 @@ public class QuizQuestionFragment extends Fragment {
 		    xVals.add(entry.getKey().toString());
 		    switch (entry.getKey()) {
 		    case Config.CAT_GOOD:
-		    	colors.add(Config.COLOR_GREEN);
+		    	colors.add(Config.COLOR_GOOD);
 		    	break;
 		    case Config.CAT_BAD:
-		    	colors.add(Config.COLOR_YELLOW);
+		    	colors.add(Config.COLOR_BAD);
 		    	break;
 		    case Config.CAT_UGLY:
-		    	colors.add(Config.COLOR_RED);
+		    	colors.add(Config.COLOR_UGLY);
 		    	break;
 		    default:
-		    	colors.add(Config.COLOR_BLUE);
+		    	colors.add(Config.COLOR_DEFAULT);
 		    	break;
 		    }
 		}
