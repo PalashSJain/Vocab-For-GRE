@@ -84,12 +84,9 @@ public class QuizQuestionFragment extends Fragment {
 	}
 
 	private Word getRandomRecordFromQuizTable() {
-		Random random = new Random();
 		QuizWordsDbQuery quizWords = new QuizWordsDbQuery(getContext());
 		quizWords.open();
-		int noOfRecords = quizWords.getCount();
-		long rowIndex = random.nextInt(noOfRecords);
-		long allWordId = quizWords.getAllWordsIDAtIndex(rowIndex);
+		long allWordId = quizWords.getAllWordsIdOfRandomWord();
 		quizWords.close();
 		AllWordsDbQuery allWords = new AllWordsDbQuery(getContext());
 		allWords.open();

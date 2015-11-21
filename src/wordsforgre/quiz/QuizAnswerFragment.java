@@ -79,14 +79,6 @@ public class QuizAnswerFragment extends Fragment {
 				getFragmentManager().beginTransaction()
 						.replace(R.id.container, new QuizQuestionFragment())
 						.commit();
-				// If category of word is Unread, then it should change to
-				// Mastered
-				// If category of word is Mastered, then leave it
-				// Else, remove this word from the LinkList
-				// Also, update Expected, Actual values and the category of the
-				// word
-				// getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,
-				// new QuizQuestionFragment()).commit();
 			}
 
 			private void removeWordInstanceFromQuizTable(long wordId) {

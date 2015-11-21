@@ -10,6 +10,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class AllWordsDbQuery {
 	// Database fields
@@ -105,12 +106,15 @@ public class AllWordsDbQuery {
 						+ allWordId, null, null, null, null);
 		Word w = null;
 		try {
-			cursor.moveToFirst();
-			w = new Word(cursor.getString(0), cursor.getString(1));
-			w.category = cursor.getString(2);
-			w.allWordId = allWordId;
+			if (cursor.moveToFirst()) {
+				w = new Word(cursor.getString(0), cursor.getString(1));
+				w.category = cursor.getString(2);
+				w.allWordId = allWordId;
+			} else {
+				Log.i("getWordAtIndex", "cursor is empty for allWordId, " + allWordId);
+			}
 		} catch(Exception e) {
-			System.out.println("e.stackTrace: " + e.getStackTrace());
+			Log.i("getWordAtIndex", "e.stackTrace.toString: " + e.getStackTrace().toString());
 		}
 		return w;
 	}

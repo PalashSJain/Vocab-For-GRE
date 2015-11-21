@@ -1,10 +1,13 @@
 package wordsforgre.database;
 
+import java.util.Random;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class QuizWordsDbQuery {
 
@@ -87,27 +90,48 @@ public class QuizWordsDbQuery {
 		return ids;
 	}
 
-	public long getAllWordsIDAtIndex(long rowIndex) {
-		String sql = "select (" + WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_QUIZ
-				+ ") from " + WordsDbCRUD.TABLE_NAME_QUIZ + " where "
-				+ WordsDbCRUD.COLUMN_QUIZ_ID + "=" + rowIndex;
-		Cursor cursor = database.rawQuery(sql, null);
+	public long getAllWordsIdOfRandomWord() {
+		Cursor cursor = database.query(WordsDbCRUD.TABLE_NAME_QUIZ,
+				new String[] { WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_QUIZ }, null,
+				null, null, null, null);
+		int noOfRecords = cursor.getCount();
+		Random random = new Random();
+		int rowIndex = random.nextInt(noOfRecords);
 		long l = -1;
-		if (cursor != null && cursor.getCount() > 0) {
-			cursor.moveToLast();
-			l = cursor.getLong(0);
+		try {
+			if (cursor.moveToPosition(rowIndex)) {
+				l = cursor.getLong(0);
+			} else {
+				Log.i("getAllWordsIDAtIndex", "Cursor is empty for rowIndex, "
+						+ rowIndex);
+			}
+		} catch (Exception e) {
+			Log.i("getAllWordsIDAtIndex", "e.stackTrace.toString: "
+					+ e.getStackTrace().toString());
 		}
 		return l;
 	}
 
 	public void searchAndRemoveWordInstance(long wordId) {
-		String subSql = "select " + WordsDbCRUD.COLUMN_QUIZ_ID + " from "
-				+ WordsDbCRUD.TABLE_NAME_QUIZ + " where "
-				+ WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_QUIZ + "=" + wordId
-				+ " order by " + WordsDbCRUD.COLUMN_QUIZ_ID + " desc limit 1";
-		String sql = "delete from " + WordsDbCRUD.TABLE_NAME_QUIZ + " where "
-				+ WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_QUIZ + " = (" + subSql
-				+ ")";
-		database.execSQL(sql);
+		Cursor cursor = database.query(WordsDbCRUD.TABLE_NAME_QUIZ,
+				new String[] { WordsDbCRUD.COLUMN_QUIZ_ID },
+				WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_QUIZ + " = " + wordId, null,
+				null, null, null);
+		cursor.moveToFirst();
+		long quizId = cursor.getLong(0);
+		database.delete(WordsDbCRUD.TABLE_NAME_QUIZ, WordsDbCRUD.COLUMN_QUIZ_ID
+				+ "=?", new String[] { "" + quizId });
+	}
+
+	public void printAllWords() {
+		Cursor cursor = database.query(WordsDbCRUD.TABLE_NAME_QUIZ,
+				new String[] { WordsDbCRUD.COLUMN_QUIZ_ID,
+						WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_QUIZ }, null, null,
+				null, null, null);
+		cursor.moveToFirst();
+		for (int i = 0; i < cursor.getCount(); i++) {
+			System.out.println(cursor.getLong(0) + " : " + cursor.getLong(1));
+			cursor.moveToNext();
+		}
 	}
 }
