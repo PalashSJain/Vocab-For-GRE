@@ -65,23 +65,19 @@ public class QuizQuestionFragment extends Fragment {
 		final Word w = getRandomRecordFromQuizTable();
 
 		TextView tvQuizWord = (TextView) rootView.findViewById(R.id.tvQuizWord);
-		tvQuizWord.setText(w.word);
-
-		TextView tvWordType = (TextView) rootView
-				.findViewById(R.id.tvQuizWordCategory);
-		tvWordType.setText(w.category);
+		tvQuizWord.setText(w.word.toUpperCase());
 		switch (w.category) {
 		case Config.CAT_GOOD:
-			tvWordType.setTextColor(Config.COLOR_GREEN);
+			tvQuizWord.setTextColor(Config.COLOR_GREEN);
 			break;
 		case Config.CAT_BAD:
-			tvWordType.setTextColor(Config.COLOR_YELLOW);
+			tvQuizWord.setTextColor(Config.COLOR_YELLOW);
 			break;
 		case Config.CAT_UGLY:
-			tvWordType.setTextColor(Config.COLOR_RED);
+			tvQuizWord.setTextColor(Config.COLOR_RED);
 			break;
 		default:
-			tvWordType.setTextColor(Config.COLOR_BLUE);
+			tvQuizWord.setTextColor(Config.COLOR_BLUE);
 			break;
 		}
 
