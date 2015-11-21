@@ -1,7 +1,9 @@
 package wordsforgre.database;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
@@ -18,7 +20,8 @@ public class AllWordsDbQuery {
 	private WordsDbCRUD dbHelper;
 	private String[] allColumns = { WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_ALLWORDS,
 			WordsDbCRUD.COLUMN_WORD, WordsDbCRUD.COLUMN_MEANING,
-			WordsDbCRUD.COLUMN_WORD_ACTUAL, WordsDbCRUD.COLUMN_WORD_EXPECTED, WordsDbCRUD.COLUMN_WORD_CATEGORY };
+			WordsDbCRUD.COLUMN_WORD_ACTUAL, WordsDbCRUD.COLUMN_WORD_EXPECTED,
+			WordsDbCRUD.COLUMN_WORD_CATEGORY };
 	private String[] wordMeaningAndCategoryColumn = { WordsDbCRUD.COLUMN_WORD,
 			WordsDbCRUD.COLUMN_MEANING, WordsDbCRUD.COLUMN_WORD_CATEGORY };
 	private List<Word> words;
@@ -35,7 +38,8 @@ public class AllWordsDbQuery {
 		dbHelper.close();
 	}
 
-	public Word addWord(String word, String meaning, long actual, long expected, String category) {
+	public Word addWord(String word, String meaning, long actual,
+			long expected, String category) {
 		ContentValues values = new ContentValues();
 		values.put(WordsDbCRUD.COLUMN_WORD, word);
 		values.put(WordsDbCRUD.COLUMN_MEANING, meaning);
@@ -95,15 +99,17 @@ public class AllWordsDbQuery {
 		words = wordList;
 		for (int i = 0; i < words.size(); i++) {
 			if (words.get(i) != null) {
-				this.addWord(words.get(i).word, words.get(i).meaning, 1, 1, Config.CAT_NEUTRAL);
+				this.addWord(words.get(i).word, words.get(i).meaning, 1, 1,
+						Config.CAT_NEUTRAL);
 			}
 		}
 	}
 
 	public Word getWordAtIndex(long allWordId) {
 		Cursor cursor = database.query(WordsDbCRUD.TABLE_NAME_WORDS,
-				wordMeaningAndCategoryColumn, WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_ALLWORDS + " = "
-						+ allWordId, null, null, null, null);
+				wordMeaningAndCategoryColumn,
+				WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_ALLWORDS + " = " + allWordId,
+				null, null, null, null);
 		Word w = null;
 		try {
 			if (cursor.moveToFirst()) {
@@ -111,10 +117,12 @@ public class AllWordsDbQuery {
 				w.category = cursor.getString(2);
 				w.allWordId = allWordId;
 			} else {
-				Log.i("getWordAtIndex", "cursor is empty for allWordId, " + allWordId);
+				Log.i("getWordAtIndex", "cursor is empty for allWordId, "
+						+ allWordId);
 			}
-		} catch(Exception e) {
-			Log.i("getWordAtIndex", "e.stackTrace.toString: " + e.getStackTrace().toString());
+		} catch (Exception e) {
+			Log.i("getWordAtIndex", "e.stackTrace.toString: "
+					+ e.getStackTrace().toString());
 		}
 		return w;
 	}
@@ -129,21 +137,21 @@ public class AllWordsDbQuery {
 			long[] info = { cursor.getLong(0), cursor.getLong(1) };
 			return info;
 		}
-		return new long[]{0,0};
+		return new long[] { 0, 0 };
 	}
 
 	public void increaseExpectedAndActualToMax(long wordId) {
 		setActualAndExpectedValues(wordId, 10, 10, Config.CAT_UGLY);
 	}
 
-	private void setActualAndExpectedValues(long wordId, long actual, long expected, String category) {
+	private void setActualAndExpectedValues(long wordId, long actual,
+			long expected, String category) {
 		ContentValues values = new ContentValues();
 		values.put(WordsDbCRUD.COLUMN_WORD_ACTUAL, actual);
 		values.put(WordsDbCRUD.COLUMN_WORD_EXPECTED, expected);
 		values.put(WordsDbCRUD.COLUMN_WORD_CATEGORY, category);
-		database.update(WordsDbCRUD.TABLE_NAME_WORDS,
-				values, WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_ALLWORDS + "="
-						+ wordId, null);
+		database.update(WordsDbCRUD.TABLE_NAME_WORDS, values,
+				WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_ALLWORDS + "=" + wordId, null);
 	}
 
 	public void setWordCategoryToGood(long wordId) {
@@ -156,9 +164,26 @@ public class AllWordsDbQuery {
 
 	public void reduceActualFromWordsTable(long wordId, long newActual) {
 		if (newActual > 1 && newActual <= 8) {
-			setActualAndExpectedValues(wordId, newActual, newActual, Config.CAT_BAD);
+			setActualAndExpectedValues(wordId, newActual, newActual,
+					Config.CAT_BAD);
 		} else if (newActual > 8) {
-			setActualAndExpectedValues(wordId, newActual, newActual, Config.CAT_UGLY);
+			setActualAndExpectedValues(wordId, newActual, newActual,
+					Config.CAT_UGLY);
 		}
+	}
+
+	public Map<String, Integer> getCategorySizes() {
+		String sql = "select "+WordsDbCRUD.COLUMN_WORD_CATEGORY+",count(" + WordsDbCRUD.COLUMN_WORD_CATEGORY
+				+ ") from " + WordsDbCRUD.TABLE_NAME_WORDS + " group by "
+				+ WordsDbCRUD.COLUMN_WORD_CATEGORY;
+		Cursor cursor = database.rawQuery(sql, null);
+		int size = cursor.getCount();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		cursor.moveToFirst();
+		for (int i = 0; i < size; i++) {
+			map.put(cursor.getString(0), cursor.getInt(1));
+			cursor.moveToNext();
+		}
+		return map;
 	}
 }

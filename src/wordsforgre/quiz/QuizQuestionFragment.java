@@ -1,7 +1,8 @@
 package wordsforgre.quiz;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.List;
+import java.util.Map;
 
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.database.QuizWordsDbQuery;
@@ -32,10 +33,27 @@ public class QuizQuestionFragment extends Fragment {
 
 	protected String[] mCategories = new String[] { Config.CAT_NEUTRAL,
 			Config.CAT_GOOD, Config.CAT_BAD, Config.CAT_UGLY };
+	protected Map<String, Integer> categoryAndSizes;
 
 	public QuizQuestionFragment() {
 		// TODO Auto-generated constructor stub
 		// this.words = getWordsFromSomewhere();
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Thread thread = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				AllWordsDbQuery allWords = new AllWordsDbQuery(getContext());
+				allWords.open();
+				categoryAndSizes = allWords.getCategorySizes();
+				allWords.close();
+			}
+		});
+		thread.start();
 	}
 
 	@Override
@@ -125,42 +143,44 @@ public class QuizQuestionFragment extends Fragment {
 		mChart.setRotationEnabled(false);
 		mChart.setHighlightPerTapEnabled(true);
 
-		setData(3, 100);
+		setData();
 
 		mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
 
 		mChart.getLegend().setEnabled(false);
 	}
 
-	private void setData(int count, float range) {
-
-		float mult = range;
-
+	private void setData() {
 		ArrayList<Entry> yVals1 = new ArrayList<Entry>();
-
-		// IMPORTANT: In a PieChart, no values (Entry) should have the same
-		// xIndex (even if from different DataSets), since no values can be
-		// drawn above each other.
-		// for (int i = 0; i < count + 1; i++) {
-		// yVals1.add(new Entry((float) (Math.random() * mult) + mult / 5, i));
-		// }
-		yVals1.add(new Entry(20, 0));
-		yVals1.add(new Entry(15, 1));
-		yVals1.add(new Entry(10, 2));
-		yVals1.add(new Entry(5, 3));
-
 		ArrayList<String> xVals = new ArrayList<String>();
+		List<Integer> colors = new ArrayList<>();
 
-		for (int i = 0; i < count + 1; i++)
-			xVals.add(mCategories[i % mCategories.length]);
+		for (Map.Entry<String, Integer> entry : categoryAndSizes.entrySet()) {
+			yVals1.add(new Entry(entry.getValue(), yVals1.size()));
+		    xVals.add(entry.getKey().toString());
+		    switch (entry.getKey()) {
+		    case Config.CAT_GOOD:
+		    	colors.add(Config.COLOR_GREEN);
+		    	break;
+		    case Config.CAT_BAD:
+		    	colors.add(Config.COLOR_YELLOW);
+		    	break;
+		    case Config.CAT_UGLY:
+		    	colors.add(Config.COLOR_RED);
+		    	break;
+		    default:
+		    	colors.add(Config.COLOR_BLUE);
+		    	break;
+		    }
+		}
 
 		PieDataSet dataSet = new PieDataSet(yVals1, "Current Stats");
 		dataSet.setSliceSpace(2f);
 		dataSet.setSelectionShift(5f);
+		dataSet.setColors(colors);
 
-		// add a lot of colors
-		dataSet.setColors(new int[] { Config.COLOR_BLUE, Config.COLOR_GREEN,
-				Config.COLOR_YELLOW, Config.COLOR_RED });
+//		dataSet.setColors(new int[] { Config.COLOR_BLUE, Config.COLOR_GREEN,
+//				Config.COLOR_YELLOW, Config.COLOR_RED });
 		// dataSet.setSelectionShift(0f);
 
 		PieData data = new PieData(xVals, dataSet);
