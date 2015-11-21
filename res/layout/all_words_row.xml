@@ -92,7 +92,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/vsWord"
-        android:visibility="visible" >
+        android:visibility="gone" >
 
         <LinearLayout
             android:id="@+id/expandedOptions"
