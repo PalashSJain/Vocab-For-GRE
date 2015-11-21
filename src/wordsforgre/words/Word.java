@@ -1,8 +1,8 @@
 package wordsforgre.words;
 
+import wordsforgre.utils.Config;
 import android.os.Parcel;
 import android.os.Parcelable;
-import wordsforgre.utils.Config;
 
 public class Word implements Parcelable {
 	public String word;

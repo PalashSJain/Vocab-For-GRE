@@ -15,7 +15,6 @@ import wordsforgre.about.AboutActivity;
 import wordsforgre.allwords.AllWordsActivity;
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.database.QuizWordsDbQuery;
-import wordsforgre.database.WordsDbCRUD;
 import wordsforgre.quiz.QuizActivity;
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
@@ -24,7 +23,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -152,7 +150,7 @@ public class MainActivity extends ActionBarActivity implements
 			fragmentManager
 			.beginTransaction()
 			.replace(R.id.container,
-					PlaceholderFragment.newInstance(position + 1)).commit();
+					new MainFragment()).commit();
 			break;
 		}
 	}

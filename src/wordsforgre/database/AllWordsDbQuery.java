@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
@@ -173,8 +174,9 @@ public class AllWordsDbQuery {
 	}
 
 	public Map<String, Integer> getCategorySizes() {
-		String sql = "select "+WordsDbCRUD.COLUMN_WORD_CATEGORY+",count(" + WordsDbCRUD.COLUMN_WORD_CATEGORY
-				+ ") from " + WordsDbCRUD.TABLE_NAME_WORDS + " group by "
+		String sql = "select " + WordsDbCRUD.COLUMN_WORD_CATEGORY + ",count("
+				+ WordsDbCRUD.COLUMN_WORD_CATEGORY + ") from "
+				+ WordsDbCRUD.TABLE_NAME_WORDS + " group by "
 				+ WordsDbCRUD.COLUMN_WORD_CATEGORY;
 		Cursor cursor = database.rawQuery(sql, null);
 		int size = cursor.getCount();
@@ -185,5 +187,32 @@ public class AllWordsDbQuery {
 			cursor.moveToNext();
 		}
 		return map;
+	}
+
+	public Word getRandomWord() {
+		Cursor cursor = database.query(WordsDbCRUD.TABLE_NAME_WORDS,
+				new String[] { WordsDbCRUD.COLUMN_WORD,
+						WordsDbCRUD.COLUMN_MEANING,
+						WordsDbCRUD.COLUMN_WORD_CATEGORY, WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_ALLWORDS }, null, null, null,
+				null, null);
+		int noOfRecords = cursor.getCount();
+		Random random = new Random();
+		int rowIndex = random.nextInt(noOfRecords);
+		Word w = new Word();
+		try {
+			if (cursor.moveToPosition(rowIndex)) {
+				w.word = cursor.getString(0);
+				w.meaning = cursor.getString(1);
+				w.category = cursor.getString(2);
+				w.id = cursor.getLong(3);
+			} else {
+				Log.i("getRandomWord", "Cursor is empty for rowIndex, "
+						+ rowIndex);
+			}
+		} catch (Exception e) {
+			Log.i("getRandomWord", "e.stackTrace.toString: "
+					+ e.getStackTrace().toString());
+		}
+		return w;
 	}
 }
