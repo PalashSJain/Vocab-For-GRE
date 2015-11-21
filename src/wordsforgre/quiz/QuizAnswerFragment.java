@@ -3,6 +3,7 @@ package wordsforgre.quiz;
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.database.QuizWordsDbQuery;
 import wordsforgre.landing.R;
+import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,10 +15,10 @@ import android.widget.TextView;
 
 public class QuizAnswerFragment extends Fragment {
 
-	Word word;
+	Word w;
 
 	public QuizAnswerFragment(Word w) {
-		this.word = w;
+		this.w = w;
 	}
 
 	@Override
@@ -33,11 +34,25 @@ public class QuizAnswerFragment extends Fragment {
 
 		TextView tvAnswerWord = (TextView) rootView
 				.findViewById(R.id.tvAnswerWord);
-		tvAnswerWord.setText(word.word);
+		tvAnswerWord.setText(w.word.toUpperCase());
+		switch (w.category) {
+		case Config.CAT_GOOD:
+			tvAnswerWord.setTextColor(Config.COLOR_GREEN);
+			break;
+		case Config.CAT_BAD:
+			tvAnswerWord.setTextColor(Config.COLOR_YELLOW);
+			break;
+		case Config.CAT_UGLY:
+			tvAnswerWord.setTextColor(Config.COLOR_RED);
+			break;
+		default:
+			tvAnswerWord.setTextColor(Config.COLOR_BLUE);
+			break;
+		}
 
 		TextView tvAnswerMeaning = (TextView) rootView
 				.findViewById(R.id.tvAnswerMeaning);
-		tvAnswerMeaning.setText(word.meaning);
+		tvAnswerMeaning.setText(w.meaning);
 
 		TextView tvYes = (TextView) rootView.findViewById(R.id.tvYes);
 		tvYes.setOnClickListener(new OnClickListener() {
@@ -45,7 +60,7 @@ public class QuizAnswerFragment extends Fragment {
 			public void onClick(View v) {
 				AllWordsDbQuery allWords = new AllWordsDbQuery(getContext());
 				allWords.open();
-				long wordId = word.allWordId;
+				long wordId = w.allWordId;
 				long[] wordInfo = allWords.getWordInfo(wordId);
 				allWords.close();
 				long wordActual = wordInfo[0];
@@ -95,7 +110,7 @@ public class QuizAnswerFragment extends Fragment {
 			public void onClick(View v) {
 				AllWordsDbQuery allWords = new AllWordsDbQuery(getContext());
 				allWords.open();
-				long wordId = word.allWordId;
+				long wordId = w.allWordId;
 				long[] wordInfo = allWords.getWordInfo(wordId);
 				allWords.close();
 				if (wordInfo[0] != 10 && wordInfo[1] != 10) {
