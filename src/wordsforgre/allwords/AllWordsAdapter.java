@@ -2,6 +2,7 @@ package wordsforgre.allwords;
 
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
+import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
@@ -55,8 +56,28 @@ public class AllWordsAdapter extends ArrayAdapter<Word> implements Filterable{
 		final Word word = getItem(pos);
 		final ViewSwitcher options = (ViewSwitcher) row.findViewById(R.id.vsOptions);
 		final ViewSwitcher wordAndMeaning = (ViewSwitcher) row.findViewById(R.id.vsWord);
-		holder.tvWord.setText(word.word);
+		holder.tvWord.setText(word.word.toUpperCase());
 		holder.tvMeaning.setText(word.meaning);
+		
+		switch (word.category) {
+		case Config.CAT_GOOD:
+			holder.tvWord.setTextColor(Config.COLOR_GREEN);
+			holder.tvMeaning.setTextColor(Config.COLOR_GREEN);
+			break;
+		case Config.CAT_BAD:
+			holder.tvWord.setTextColor(Config.COLOR_YELLOW);
+			holder.tvMeaning.setTextColor(Config.COLOR_YELLOW);
+			break;
+		case Config.CAT_UGLY:
+			holder.tvWord.setTextColor(Config.COLOR_RED);
+			holder.tvMeaning.setTextColor(Config.COLOR_RED);
+			break;
+		default:
+			holder.tvWord.setTextColor(Config.COLOR_BLUE);
+			holder.tvMeaning.setTextColor(Config.COLOR_BLUE);
+			break;
+		}
+		
 		holder.ibDelete.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

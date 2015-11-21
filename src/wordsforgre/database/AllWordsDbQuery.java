@@ -84,6 +84,7 @@ public class AllWordsDbQuery {
 			long id = cursor.getLong(0);
 			Word w = cursorToWord(cursor);
 			w.id = id;
+			w.category = cursor.getString(cursor.getColumnIndex(WordsDbCRUD.COLUMN_WORD_CATEGORY));
 			words.add(w);
 			cursor.moveToNext();
 		}
