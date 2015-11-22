@@ -33,24 +33,27 @@
             android:src="@drawable/ic_action_discard" />
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/tvMainWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/expandedOptions"
-        android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/wordsforgre_medium_margin"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="50sp" />
+
     <TextView
         android:id="@+id/tvMainMeaning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/tvMainWord"
+        android:gravity="center"
         android:textSize="25sp" />
 
 </RelativeLayout>
