@@ -216,4 +216,24 @@ public class AllWordsDbQuery {
 		}
 		return w;
 	}
+
+	public ArrayList<Word> getMatchingWords(String query) {
+		ArrayList<Word> words = new ArrayList<Word>();
+
+		Cursor cursor = database.query(WordsDbCRUD.TABLE_NAME_WORDS,
+				allColumns, WordsDbCRUD.COLUMN_WORD + " LIKE ?", new String[]{"%"+query+"%"}, null, null, null);
+
+		if (cursor.moveToFirst()){
+			do {
+				long id = cursor.getLong(0);
+				Word w = cursorToWord(cursor);
+				w.id = id;
+				w.category = cursor.getString(cursor
+						.getColumnIndex(WordsDbCRUD.COLUMN_WORD_CATEGORY));
+				words.add(w);
+			} while (cursor.moveToNext());
+		}
+		cursor.close();
+		return words;
+	}
 }

@@ -4,8 +4,8 @@ import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
+import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,7 +24,7 @@ public class AllWordsAdapter extends ArrayAdapter<Word> implements Filterable{
 	Context context;
 	private AllWordsAdapter adapter;
 
-	public AllWordsAdapter(FragmentActivity activity, int fragment) {
+	public AllWordsAdapter(Activity activity, int fragment) {
 		super(activity, fragment);
 		this.context = activity;
 		this.adapter = this;
@@ -131,5 +131,10 @@ public class AllWordsAdapter extends ArrayAdapter<Word> implements Filterable{
 
 	public void clearAll() {
 		// TODO Auto-generated method stub
+	}
+
+	public void filter(String charText) {
+		// TODO Auto-generated method stub
+		
 	}
 }

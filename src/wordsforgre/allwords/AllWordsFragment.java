@@ -9,8 +9,13 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 
 public class AllWordsFragment extends ListFragment {
@@ -32,6 +37,38 @@ public class AllWordsFragment extends ListFragment {
 	    adapter = new AllWordsAdapter(getActivity(),
                 R.layout.all_words_fragment);
         setListAdapter(adapter);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.all_words_fragment, container, false);
+		
+		EditText autoCompleteSearchBox = (EditText) rootView.findViewById(R.id.autoCompleteSearchBox);
+		autoCompleteSearchBox.setHint("Search word");
+		autoCompleteSearchBox.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				String str = s.toString();
+				if (str.length() > 0) {
+					SearchedWordListTask swlt = new SearchedWordListTask(str);
+					swlt.execute();
+				} else {
+					RetrieveWordListTask rwlt = new RetrieveWordListTask();
+					rwlt.execute();
+				}
+				setListAdapter(adapter);
+			}
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+			}
+			@Override
+			public void afterTextChanged(Editable s) {
+			}
+		});
+		
+		return rootView;
 	}
 
 	@Override
@@ -93,7 +130,33 @@ public class AllWordsFragment extends ListFragment {
         protected void onPostExecute(ArrayList<Word> result) {
             super.onPostExecute(result);
             
-            adapter.clearAll();
+            adapter.clear();
+            adapter.addAll(result); //which will call notifydatasetchanged
+        }
+	}
+	
+	private class SearchedWordListTask extends AsyncTask<Void, String, ArrayList<Word>> {
+
+		String queryString = "";
+		
+        public SearchedWordListTask(String query) {
+        	this.queryString = query;
+		}
+
+		@Override
+        protected ArrayList<Word> doInBackground(Void... params) {
+        	AllWordsDbQuery allWords = new AllWordsDbQuery(getActivity());
+			allWords.open();
+			ArrayList<Word> words = allWords.getMatchingWords(queryString);
+			allWords.close();
+            return words;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Word> result) {
+            super.onPostExecute(result);
+            
+            adapter.clear();
             adapter.addAll(result); //which will call notifydatasetchanged
         }
 	}
