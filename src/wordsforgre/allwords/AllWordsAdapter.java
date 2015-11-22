@@ -6,6 +6,7 @@ import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
 import android.app.Activity;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -59,6 +60,13 @@ public class AllWordsAdapter extends ArrayAdapter<Word> implements Filterable{
 		holder.tvWord.setText(word.word.toUpperCase());
 		holder.tvMeaning.setText(word.meaning);
 		
+		if (pos % 2 == 1) {
+			holder.tvWord.setGravity(Gravity.START);
+			holder.tvMeaning.setGravity(Gravity.START);
+		} else {
+			holder.tvWord.setGravity(Gravity.END);
+			holder.tvMeaning.setGravity(Gravity.END);
+		}
 		switch (word.category) {
 		case Config.CAT_GOOD:
 			holder.tvWord.setTextColor(Config.COLOR_GOOD);
