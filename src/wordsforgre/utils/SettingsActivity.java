@@ -2,9 +2,11 @@ package wordsforgre.utils;
 
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.database.QuizWordsDbQuery;
+import wordsforgre.landing.MainActivity;
 import wordsforgre.landing.R;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -25,6 +27,12 @@ public class SettingsActivity extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent iMain = new Intent(this, MainActivity.class);
+		startActivity(iMain);
 	}
 
 	/**
