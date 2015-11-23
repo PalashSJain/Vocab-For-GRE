@@ -44,10 +44,6 @@ public class AboutActivity extends ActionBarActivity {
 			Toast.makeText(getApplicationContext(), "Action Settings Clicked.", Toast.LENGTH_SHORT).show();
 			return true;
 		}
-		if (id == R.id.about_add) {
-			Toast.makeText(getApplicationContext(), "About Add Clicked.", Toast.LENGTH_SHORT).show();
-			return true;
-		}
 		if (id == R.id.home) {
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
