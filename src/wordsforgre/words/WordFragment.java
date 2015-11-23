@@ -5,10 +5,14 @@ import wordsforgre.landing.R;
 import wordsforgre.utils.Config;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -17,6 +21,9 @@ import android.widget.Toast;
 
 public class WordFragment extends Fragment {
 
+	private static final int SWIPE_MIN_DISTANCE = 120;
+	private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+	LinearLayout llOptions;
 	Word w = null;
 
 	public WordFragment(Word word) {
@@ -39,7 +46,7 @@ public class WordFragment extends Fragment {
 		TextView tvWord = (TextView) rootView.findViewById(R.id.tvMainWord);
 		tvWord.setText(w.word.toUpperCase());
 
-		final LinearLayout llOptions = (LinearLayout) rootView
+		llOptions = (LinearLayout) rootView
 				.findViewById(R.id.expandedOptions);
 		ImageButton ibDelete = (ImageButton) rootView
 				.findViewById(R.id.imageDeleteWord);
@@ -80,14 +87,12 @@ public class WordFragment extends Fragment {
 				.findViewById(R.id.tvMainMeaning);
 		tvMeaning.setText(w.meaning);
 
-		rootView.setOnLongClickListener(new OnLongClickListener() {
+		final GestureDetector gdt = new GestureDetector(getContext(),
+				new GestureListener());
+		rootView.setOnTouchListener(new OnTouchListener() {
 			@Override
-			public boolean onLongClick(View v) {
-				if (llOptions.getVisibility() == View.VISIBLE) {
-					llOptions.setVisibility(View.GONE);
-				} else if (llOptions.getVisibility() == View.GONE) {
-					llOptions.setVisibility(View.VISIBLE);
-				}
+			public boolean onTouch(View v, MotionEvent event) {
+				gdt.onTouchEvent(event);
 				return true;
 			}
 		});
@@ -112,5 +117,22 @@ public class WordFragment extends Fragment {
 		}
 
 		return rootView;
+	}
+	
+	private class GestureListener extends SimpleOnGestureListener {
+		@Override
+		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+				float velocityY) {
+			if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE
+					&& Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+				llOptions.setVisibility(View.GONE);
+				return false; // Bottom to top
+			} else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE
+					&& Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+				llOptions.setVisibility(View.VISIBLE);
+				return false; // Top to bottom
+			}
+			return false;
+		}
 	}
 }
