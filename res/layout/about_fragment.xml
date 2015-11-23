@@ -14,19 +14,46 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:text="WordsForGRE v1.0.0"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/update_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/header"
-        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/header"
+        android:layout_alignEnd="@+id/header"
+        android:layout_alignStart="@+id/header"
         android:layout_below="@+id/header"
-        android:text="+ view all words\n+ add, delete, edit word\n"
+        android:text="+ quiz of all the words\n+ view all words\n+ delete words\n+ search word\n"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/header_future_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/update_info"
+        android:layout_alignRight="@+id/update_info"
+        android:layout_alignEnd="@+id/update_info"
+        android:layout_alignStart="@+id/update_info"
+        android:layout_below="@+id/update_info"
+        android:text="> Intended enhancements in future"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/future_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/header_future_notes"
+        android:layout_alignStart="@+id/header_future_notes"
+        android:layout_alignRight="@+id/header_future_notes"
+        android:layout_alignEnd="@+id/header_future_notes"
+        android:layout_below="@+id/header_future_notes"
+        android:text="+ edit word and meaning\n+ add notes to a word\n+ link synonyms and antonyms of the word"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

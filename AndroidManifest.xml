@@ -45,7 +45,7 @@
                 android:value="wordsforgre.landing.MainActivity" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name="wordsforgre.utils.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
     </application>

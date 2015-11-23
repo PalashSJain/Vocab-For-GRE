@@ -52,9 +52,7 @@ public class WordsDbCRUD extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		System.out.println("Creating AllWords Table");
 		database.execSQL(DATABASE_CREATE_ALLWORDS);
-		System.out.println("Creating QuizWords Table");
 		database.execSQL(DATABASE_CREATE_QUIZWORDS);
 	}
 

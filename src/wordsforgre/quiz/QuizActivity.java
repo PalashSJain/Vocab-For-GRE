@@ -2,7 +2,7 @@ package wordsforgre.quiz;
 
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
-import wordsforgre.landing.SettingsActivity;
+import wordsforgre.utils.SettingsActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;

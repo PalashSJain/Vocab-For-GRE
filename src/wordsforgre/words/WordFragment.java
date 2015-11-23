@@ -2,9 +2,13 @@ package wordsforgre.words;
 
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.landing.R;
+import wordsforgre.landing.RandomWordsFragment;
 import wordsforgre.utils.Config;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
@@ -45,31 +49,47 @@ public class WordFragment extends Fragment {
 		TextView tvWord = (TextView) rootView.findViewById(R.id.tvMainWord);
 		tvWord.setText(w.word.toUpperCase());
 
-		llOptions = (LinearLayout) rootView
-				.findViewById(R.id.expandedOptions);
+		llOptions = (LinearLayout) rootView.findViewById(R.id.expandedOptions);
 		ImageButton ibDelete = (ImageButton) rootView
 				.findViewById(R.id.imageDeleteWord);
 		ImageButton ibEdit = (ImageButton) rootView
 				.findViewById(R.id.imageEditWord);
 
+		final Context context = getContext();
 		ibDelete.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO: Add confirmation dialogue here
-				Thread thread = new Thread(new Runnable() {
-					@Override
-					public void run() {
-						AllWordsDbQuery allWords = new AllWordsDbQuery(
-								getContext());
-						allWords.open();
-						allWords.deleteWord(w);
-						allWords.close();
-					}
-				});
-				thread.start();
-				getFragmentManager().beginTransaction()
-						.replace(R.id.container, new WordFragment(w)).commit();
-				llOptions.setVisibility(View.GONE);
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+						context);
+				alertDialogBuilder
+						.setMessage("Are you sure you want to delete?");
+				alertDialogBuilder.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface arg0, int arg1) {
+								AllWordsDbQuery allWords = new AllWordsDbQuery(
+										context);
+								allWords.open();
+								allWords.deleteWord(w);
+								allWords.close();
+								getFragmentManager()
+										.beginTransaction()
+										.replace(R.id.container,
+												new RandomWordsFragment())
+										.commit();
+								llOptions.setVisibility(View.GONE);
+
+							}
+						});
+				alertDialogBuilder.setNegativeButton("Nope",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface arg0, int arg1) {
+							}
+						});
+				AlertDialog alertDialog = alertDialogBuilder.create();
+				alertDialog.show();
+
 			}
 		});
 
@@ -117,7 +137,7 @@ public class WordFragment extends Fragment {
 
 		return rootView;
 	}
-	
+
 	private class GestureListener extends SimpleOnGestureListener {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,

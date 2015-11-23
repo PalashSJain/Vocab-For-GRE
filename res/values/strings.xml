@@ -13,7 +13,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_all_words">All Words</string>
     <string name="title_activity_quiz">Time to test!</string>
-    <string name="title_activity_search">SearchActivity</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_settings">Settings</string>
 
 </resources>

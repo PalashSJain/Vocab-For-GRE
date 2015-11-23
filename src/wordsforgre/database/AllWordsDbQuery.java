@@ -68,7 +68,6 @@ public class AllWordsDbQuery {
 
 	public void deleteWord(Word word) {
 		long id = word.id;
-		System.out.println("Comment deleted with id: " + id);
 		database.delete(WordsDbCRUD.TABLE_NAME_WORDS,
 				WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_ALLWORDS + " = " + id, null);
 	}
@@ -235,5 +234,19 @@ public class AllWordsDbQuery {
 		}
 		cursor.close();
 		return words;
+	}
+
+	public void reinitializeWords() {
+		ContentValues values = new ContentValues();
+		values.put(WordsDbCRUD.COLUMN_WORD_CATEGORY, Config.CAT_NEUTRAL);
+		values.put(WordsDbCRUD.COLUMN_WORD_ACTUAL, 1);
+		values.put(WordsDbCRUD.COLUMN_WORD_EXPECTED, 1);
+		database.update(WordsDbCRUD.TABLE_NAME_WORDS, values , null, null);
+		
+	}
+
+	public void resetWords() {
+		// TODO Auto-generated method stub
+		
 	}
 }

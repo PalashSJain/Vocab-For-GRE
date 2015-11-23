@@ -134,4 +134,18 @@ public class QuizWordsDbQuery {
 			cursor.moveToNext();
 		}
 	}
+
+	public void resetList() {
+		database.execSQL("delete from " + WordsDbCRUD.TABLE_NAME_QUIZ
+				+ " where " + WordsDbCRUD.COLUMN_QUIZ_ID
+				+ " not in (SELECT MIN("
+				+ WordsDbCRUD.COLUMN_QUIZ_ID + ") FROM "
+				+ WordsDbCRUD.TABLE_NAME_QUIZ + " GROUP BY " + WordsDbCRUD.COLUMN_ALLWORDS_ID_IN_QUIZ 
+				+ ")");
+	}
+
+	public void addDeletedWords() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -17,6 +17,7 @@ import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.database.QuizWordsDbQuery;
 import wordsforgre.quiz.QuizActivity;
 import wordsforgre.utils.Config;
+import wordsforgre.utils.SettingsActivity;
 import wordsforgre.words.Word;
 import wordsforgre.words.WordXMLHandler;
 import android.content.Context;
