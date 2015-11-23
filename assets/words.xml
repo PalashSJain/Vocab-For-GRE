@@ -1,43 +1,1327 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wordslist>
-	<wordblock>
-		<word>banal</word>
-		<meaning>so lacking in originality as to be obvious and boring</meaning>
-	</wordblock>
-	<wordblock>
-		<word>castigate</word>
-		<meaning>reprimand (someone) severely.</meaning>
-	</wordblock>
-	<wordblock>
-		<word>vapid</word>
-		<meaning>offering nothing that is stimulating or challenging</meaning>
-	</wordblock>
-	<wordblock>
-		<word>pejorative</word>
-		<meaning>expressing contempt or disapproval</meaning>
-	</wordblock>
-	<wordblock>
-		<word>disdain</word>
-		<meaning>the feeling that someone or something is unworthy of one's consideration or respect</meaning>
-	</wordblock>
-	<wordblock>
-		<word>reproach</word>
-		<meaning>to express criticism towards</meaning>
-	</wordblock>
-	<wordblock>
-		<word>repudiate</word>
-		<meaning>refuse to accept; reject</meaning>
-	</wordblock>
-	<wordblock>
-		<word>impertinent</word>
-		<meaning>not showing proper respect</meaning>
-	</wordblock>
-	<wordblock>
-		<word>mendacious</word>
-		<meaning>untruthfulness</meaning>
-	</wordblock>
-	<wordblock>
-		<word>transient</word>
-		<meaning>lasting only for a short time</meaning>
-	</wordblock>
+    <wordblock>
+        <word>abate</word>
+        <meaning>become less in amount or intensity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>aberrant</word>
+        <meaning>markedly different from an accepted norm</meaning>
+    </wordblock>
+    <wordblock>
+        <word>abeyance</word>
+        <meaning>temporary cessation or suspension</meaning>
+    </wordblock>
+    <wordblock>
+        <word>abscond</word>
+        <meaning>run away</meaning>
+    </wordblock>
+    <wordblock>
+        <word>abstemious</word>
+        <meaning>marked by temperance in indulgence</meaning>
+    </wordblock>
+    <wordblock>
+        <word>admonish</word>
+        <meaning>take to task</meaning>
+    </wordblock>
+    <wordblock>
+        <word>adulterate</word>
+        <meaning>make impure by adding a foreign or inferior substance</meaning>
+    </wordblock>
+    <wordblock>
+        <word>aesthetic</word>
+        <meaning>characterized by an appreciation of beauty or good taste</meaning>
+    </wordblock>
+    <wordblock>
+        <word>aggregate</word>
+        <meaning>a sum total of many heterogeneous things taken together</meaning>
+    </wordblock>
+    <wordblock>
+        <word>alacrity</word>
+        <meaning>liveliness and eagerness</meaning>
+    </wordblock>
+    <wordblock>
+        <word>alleviate</word>
+        <meaning>provide physical relief, as from pain</meaning>
+    </wordblock>
+    <wordblock>
+        <word>amalgamate</word>
+        <meaning>to bring or combine together or with something else</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ambiguous</word>
+        <meaning>having more than one possible meaning</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ambivalence</word>
+        <meaning>mixed feelings or emotions</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ameliorate</word>
+        <meaning>to make better</meaning>
+    </wordblock>
+    <wordblock>
+        <word>anachronism</word>
+        <meaning>something located at a time when it could not have existed</meaning>
+    </wordblock>
+    <wordblock>
+        <word>analogous</word>
+        <meaning>similar or equivalent in some respects</meaning>
+    </wordblock>
+    <wordblock>
+        <word>anarchy</word>
+        <meaning>a state of lawlessness and disorder</meaning>
+    </wordblock>
+    <wordblock>
+        <word>anomalous</word>
+        <meaning>deviating from the general or common order or type</meaning>
+    </wordblock>
+    <wordblock>
+        <word>antipathy</word>
+        <meaning>a feeling of intense dislike</meaning>
+    </wordblock>
+    <wordblock>
+        <word>apathy</word>
+        <meaning>an absence of emotion or enthusiasm</meaning>
+    </wordblock>
+    <wordblock>
+        <word>appease</word>
+        <meaning>make peace with</meaning>
+    </wordblock>
+    <wordblock>
+        <word>apprise</word>
+        <meaning>inform somebody of something</meaning>
+    </wordblock>
+    <wordblock>
+        <word>approbation</word>
+        <meaning>official approval</meaning>
+    </wordblock>
+    <wordblock>
+        <word>appropriate</word>
+        <meaning>suitable for a particular person or place or condition etc</meaning>
+    </wordblock>
+    <wordblock>
+        <word>arduous</word>
+        <meaning>characterized by effort to the point of exhaustion</meaning>
+    </wordblock>
+    <wordblock>
+        <word>artless</word>
+        <meaning>simple and natural; without cunning or deceit</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ascetic</word>
+        <meaning>someone who practices self denial as a spiritual discipline</meaning>
+    </wordblock>
+    <wordblock>
+        <word>assiduous</word>
+        <meaning>marked by care and persistent effort</meaning>
+    </wordblock>
+    <wordblock>
+        <word>assuage</word>
+        <meaning>provide physical relief, as from pain</meaning>
+    </wordblock>
+    <wordblock>
+        <word>attenuate</word>
+        <meaning>become weaker, in strength, value, or magnitude</meaning>
+    </wordblock>
+    <wordblock>
+        <word>audacious</word>
+        <meaning>disposed to venture or take risks</meaning>
+    </wordblock>
+    <wordblock>
+        <word>austere</word>
+        <meaning>of a stern or strict bearing or demeanor</meaning>
+    </wordblock>
+    <wordblock>
+        <word>autonomous</word>
+        <meaning>existing as an independent entity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>aver</word>
+        <meaning>to declare or affirm solemnly and formally as true</meaning>
+    </wordblock>
+    <wordblock>
+        <word>banal</word>
+        <meaning>repeated too often; overfamiliar through overuse</meaning>
+    </wordblock>
+    <wordblock>
+        <word>belie</word>
+        <meaning>be in contradiction with</meaning>
+    </wordblock>
+    <wordblock>
+        <word>beneficent</word>
+        <meaning>doing or producing good</meaning>
+    </wordblock>
+    <wordblock>
+        <word>bolster</word>
+        <meaning>support and strengthen</meaning>
+    </wordblock>
+    <wordblock>
+        <word>bombastic</word>
+        <meaning>ostentatiously lofty in style</meaning>
+    </wordblock>
+    <wordblock>
+        <word>boorish</word>
+        <meaning>ill-mannered and coarse in behavior or appearance</meaning>
+    </wordblock>
+    <wordblock>
+        <word>burgeon</word>
+        <meaning>grow and flourish</meaning>
+    </wordblock>
+    <wordblock>
+        <word>burnish</word>
+        <meaning>polish and make shiny</meaning>
+    </wordblock>
+    <wordblock>
+        <word>buttress</word>
+        <meaning>a support usually of stone or brick</meaning>
+    </wordblock>
+    <wordblock>
+        <word>cacophonous</word>
+        <meaning>having an unpleasant sound</meaning>
+    </wordblock>
+    <wordblock>
+        <word>capricious</word>
+        <meaning>determined by chance or impulse rather than by necessity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>castigation</word>
+        <meaning>verbal punishment</meaning>
+    </wordblock>
+    <wordblock>
+        <word>caustic</word>
+        <meaning>capable of destroying or eating away by chemical action</meaning>
+    </wordblock>
+    <wordblock>
+        <word>chicanery</word>
+        <meaning>the use of tricks to deceive someone</meaning>
+    </wordblock>
+    <wordblock>
+        <word>coagulate</word>
+        <meaning>change from a liquid to a thickened or solid state</meaning>
+    </wordblock>
+    <wordblock>
+        <word>coda</word>
+        <meaning>the closing section of a musical composition</meaning>
+    </wordblock>
+    <wordblock>
+        <word>cogent</word>
+        <meaning>powerfully persuasive</meaning>
+    </wordblock>
+    <wordblock>
+        <word>commensurate</word>
+        <meaning>corresponding in size or degree or extent</meaning>
+    </wordblock>
+    <wordblock>
+        <word>compendium</word>
+        <meaning>a publication containing a variety of works</meaning>
+    </wordblock>
+    <wordblock>
+        <word>complaisant</word>
+        <meaning>showing a cheerful willingness to do favors for others</meaning>
+    </wordblock>
+    <wordblock>
+        <word>compliant</word>
+        <meaning>disposed to act in accordance with someone's wishes</meaning>
+    </wordblock>
+    <wordblock>
+        <word>conciliatory</word>
+        <meaning>making or willing to make concessions</meaning>
+    </wordblock>
+    <wordblock>
+        <word>condone</word>
+        <meaning>excuse, overlook, or make allowances for</meaning>
+    </wordblock>
+    <wordblock>
+        <word>confound</word>
+        <meaning>be confusing or perplexing to</meaning>
+    </wordblock>
+    <wordblock>
+        <word>connoisseur</word>
+        <meaning>an expert able to appreciate a field</meaning>
+    </wordblock>
+    <wordblock>
+        <word>contention</word>
+        <meaning>the act of competing as for profit or a prize</meaning>
+    </wordblock>
+    <wordblock>
+        <word>contentious</word>
+        <meaning>showing an inclination to disagree</meaning>
+    </wordblock>
+    <wordblock>
+        <word>contrite</word>
+        <meaning>feeling or expressing pain or sorrow for sins or offenses</meaning>
+    </wordblock>
+    <wordblock>
+        <word>conundrum</word>
+        <meaning>a difficult problem</meaning>
+    </wordblock>
+    <wordblock>
+        <word>converge</word>
+        <meaning>be adjacent or come together</meaning>
+    </wordblock>
+    <wordblock>
+        <word>convoluted</word>
+        <meaning>rolled longitudinally upon itself</meaning>
+    </wordblock>
+    <wordblock>
+        <word>craven</word>
+        <meaning>lacking even the rudiments of courage; abjectly fearful</meaning>
+    </wordblock>
+    <wordblock>
+        <word>daunt</word>
+        <meaning>cause to lose courage</meaning>
+    </wordblock>
+    <wordblock>
+        <word>decorum</word>
+        <meaning>propriety in manners and conduct</meaning>
+    </wordblock>
+    <wordblock>
+        <word>default</word>
+        <meaning>an option that is selected automatically</meaning>
+    </wordblock>
+    <wordblock>
+        <word>deference</word>
+        <meaning>courteous regard for people's feelings</meaning>
+    </wordblock>
+    <wordblock>
+        <word>delineate</word>
+        <meaning>represented accurately or precisely</meaning>
+    </wordblock>
+    <wordblock>
+        <word>denigrate</word>
+        <meaning>charge falsely or with malicious intent</meaning>
+    </wordblock>
+    <wordblock>
+        <word>deride</word>
+        <meaning>treat or speak of with contempt</meaning>
+    </wordblock>
+    <wordblock>
+        <word>derivative</word>
+        <meaning>a compound obtained from another compound</meaning>
+    </wordblock>
+    <wordblock>
+        <word>desiccate</word>
+        <meaning>lacking vitality or spirit; lifeless</meaning>
+    </wordblock>
+    <wordblock>
+        <word>desultory</word>
+        <meaning>marked by lack of definite plan or regularity or purpose</meaning>
+    </wordblock>
+    <wordblock>
+        <word>deterrent</word>
+        <meaning>something immaterial that interferes with action or progress</meaning>
+    </wordblock>
+    <wordblock>
+        <word>diatribe</word>
+        <meaning>thunderous verbal attack</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dichotomy</word>
+        <meaning>being twofold</meaning>
+    </wordblock>
+    <wordblock>
+        <word>diffidence</word>
+        <meaning>lack of self-assurance</meaning>
+    </wordblock>
+    <wordblock>
+        <word>diffuse</word>
+        <meaning>spread out; not concentrated in one place</meaning>
+    </wordblock>
+    <wordblock>
+        <word>digression</word>
+        <meaning>a turning aside</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dirge</word>
+        <meaning>a song or hymn of mourning as a memorial to a dead person</meaning>
+    </wordblock>
+    <wordblock>
+        <word>disabuse</word>
+        <meaning>free somebody from an erroneous belief</meaning>
+    </wordblock>
+    <wordblock>
+        <word>discerning</word>
+        <meaning>having or revealing keen insight and good judgment</meaning>
+    </wordblock>
+    <wordblock>
+        <word>discordant</word>
+        <meaning>not in agreement or harmony</meaning>
+    </wordblock>
+    <wordblock>
+        <word>discredit</word>
+        <meaning>the state of being held in low esteem</meaning>
+    </wordblock>
+    <wordblock>
+        <word>discrepancy</word>
+        <meaning>a difference between conflicting facts or claims or opinions</meaning>
+    </wordblock>
+    <wordblock>
+        <word>disingenuous</word>
+        <meaning>not straightforward or candid</meaning>
+    </wordblock>
+    <wordblock>
+        <word>disinterested</word>
+        <meaning>unaffected by concern for one's own welfare</meaning>
+    </wordblock>
+    <wordblock>
+        <word>disjointed</word>
+        <meaning>taken apart at the points of connection</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dismiss</word>
+        <meaning>stop associating with</meaning>
+    </wordblock>
+    <wordblock>
+        <word>disparage</word>
+        <meaning>express a negative opinion of</meaning>
+    </wordblock>
+    <wordblock>
+        <word>disparate</word>
+        <meaning>fundamentally different or distinct in quality or kind</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dissemble</word>
+        <meaning>behave unnaturally or affectedly</meaning>
+    </wordblock>
+    <wordblock>
+        <word>disseminate</word>
+        <meaning>cause to become widely known</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dissolution</word>
+        <meaning>separation into component parts</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dissonance</word>
+        <meaning>disagreeable sounds</meaning>
+    </wordblock>
+    <wordblock>
+        <word>distend</word>
+        <meaning>cause to expand as it by internal pressure</meaning>
+    </wordblock>
+    <wordblock>
+        <word>distill</word>
+        <meaning>undergo condensation</meaning>
+    </wordblock>
+    <wordblock>
+        <word>diverge</word>
+        <meaning>move or draw apart</meaning>
+    </wordblock>
+    <wordblock>
+        <word>divest</word>
+        <meaning>take away possessions from someone</meaning>
+    </wordblock>
+    <wordblock>
+        <word>document</word>
+        <meaning>a representation of a person's thinking with symbolic marks</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dogmatic</word>
+        <meaning>pertaining to a code of beliefs accepted as authoritative</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dormant</word>
+        <meaning>inactive but capable of becoming active</meaning>
+    </wordblock>
+    <wordblock>
+        <word>dupe</word>
+        <meaning>fool or hoax</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ebullient</word>
+        <meaning>joyously unrestrained</meaning>
+    </wordblock>
+    <wordblock>
+        <word>eclectic</word>
+        <meaning>selecting what seems best of various styles or ideas</meaning>
+    </wordblock>
+    <wordblock>
+        <word>efficacy</word>
+        <meaning>capacity or power to produce a desired effect</meaning>
+    </wordblock>
+    <wordblock>
+        <word>effrontery</word>
+        <meaning>audacious behavior that you have no right to</meaning>
+    </wordblock>
+    <wordblock>
+        <word>elegy</word>
+        <meaning>a mournful poem; a lament for the dead</meaning>
+    </wordblock>
+    <wordblock>
+        <word>elicit</word>
+        <meaning>call forth, as an emotion, feeling, or response</meaning>
+    </wordblock>
+    <wordblock>
+        <word>embellish</word>
+        <meaning>make more attractive, as by adding ornament or color</meaning>
+    </wordblock>
+    <wordblock>
+        <word>empirical</word>
+        <meaning>derived from experiment and observation rather than theory</meaning>
+    </wordblock>
+    <wordblock>
+        <word>emulate</word>
+        <meaning>strive to equal or match, especially by imitating</meaning>
+    </wordblock>
+    <wordblock>
+        <word>endemic</word>
+        <meaning>native to or confined to a certain region</meaning>
+    </wordblock>
+    <wordblock>
+        <word>enervate</word>
+        <meaning>weaken mentally or morally</meaning>
+    </wordblock>
+    <wordblock>
+        <word>engender</word>
+        <meaning>make children</meaning>
+    </wordblock>
+    <wordblock>
+        <word>enhance</word>
+        <meaning>increase</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ephemeral</word>
+        <meaning>anything short-lived, as an insect that lives only for a day</meaning>
+    </wordblock>
+    <wordblock>
+        <word>equanimity</word>
+        <meaning>steadiness of mind under stress</meaning>
+    </wordblock>
+    <wordblock>
+        <word>equivocate</word>
+        <meaning>be deliberately ambiguous or unclear</meaning>
+    </wordblock>
+    <wordblock>
+        <word>erudite</word>
+        <meaning>having or showing profound knowledge</meaning>
+    </wordblock>
+    <wordblock>
+        <word>esoteric</word>
+        <meaning>understandable only by an enlightened inner circle</meaning>
+    </wordblock>
+    <wordblock>
+        <word>eulogy</word>
+        <meaning>a formal expression of praise for someone who has died</meaning>
+    </wordblock>
+    <wordblock>
+        <word>euphemism</word>
+        <meaning>an inoffensive expression substituted for an offensive one</meaning>
+    </wordblock>
+    <wordblock>
+        <word>exacerbate</word>
+        <meaning>make worse</meaning>
+    </wordblock>
+    <wordblock>
+        <word>exculpate</word>
+        <meaning>pronounce not guilty of criminal charges</meaning>
+    </wordblock>
+    <wordblock>
+        <word>exigency</word>
+        <meaning>a pressing or urgent situation</meaning>
+    </wordblock>
+    <wordblock>
+        <word>extrapolation</word>
+        <meaning>an inference about the future based on known facts</meaning>
+    </wordblock>
+    <wordblock>
+        <word>facetious</word>
+        <meaning>cleverly amusing in tone</meaning>
+    </wordblock>
+    <wordblock>
+        <word>facilitate</word>
+        <meaning>make easier</meaning>
+    </wordblock>
+    <wordblock>
+        <word>fallacious</word>
+        <meaning>containing or based on incorrect reasoning</meaning>
+    </wordblock>
+    <wordblock>
+        <word>fatuous</word>
+        <meaning>devoid of intelligence</meaning>
+    </wordblock>
+    <wordblock>
+        <word>fawning</word>
+        <meaning>attempting to win favor by flattery</meaning>
+    </wordblock>
+    <wordblock>
+        <word>felicitous</word>
+        <meaning>exhibiting an agreeably appropriate manner or style</meaning>
+    </wordblock>
+    <wordblock>
+        <word>fervour</word>
+        <meaning>the state of being emotionally aroused and worked up</meaning>
+    </wordblock>
+    <wordblock>
+        <word>flag</word>
+        <meaning>a rectangular piece of cloth of distinctive design</meaning>
+    </wordblock>
+    <wordblock>
+        <word>fledgling</word>
+        <meaning>young bird that has just fledged or become capable of flying</meaning>
+    </wordblock>
+    <wordblock>
+        <word>flout</word>
+        <meaning>treat with contemptuous disregard</meaning>
+    </wordblock>
+    <wordblock>
+        <word>foment</word>
+        <meaning>try to stir up</meaning>
+    </wordblock>
+    <wordblock>
+        <word>forestall</word>
+        <meaning>keep from happening or arising; make impossible</meaning>
+    </wordblock>
+    <wordblock>
+        <word>frugality</word>
+        <meaning>prudence in avoiding waste</meaning>
+    </wordblock>
+    <wordblock>
+        <word>futile</word>
+        <meaning>producing no result or effect</meaning>
+    </wordblock>
+    <wordblock>
+        <word>gainsay</word>
+        <meaning>take exception to</meaning>
+    </wordblock>
+    <wordblock>
+        <word>garrulous</word>
+        <meaning>full of trivial conversation</meaning>
+    </wordblock>
+    <wordblock>
+        <word>goad</word>
+        <meaning>stab or urge on as if with a pointed stick</meaning>
+    </wordblock>
+    <wordblock>
+        <word>gouge</word>
+        <meaning>an impression in a surface, as made by a blow</meaning>
+    </wordblock>
+    <wordblock>
+        <word>grandiloquent</word>
+        <meaning>lofty in style</meaning>
+    </wordblock>
+    <wordblock>
+        <word>gregarious</word>
+        <meaning>temperamentally seeking and enjoying the company of others</meaning>
+    </wordblock>
+    <wordblock>
+        <word>guileless</word>
+        <meaning>free of deceit</meaning>
+    </wordblock>
+    <wordblock>
+        <word>gullible</word>
+        <meaning>naive and easily deceived or tricked</meaning>
+    </wordblock>
+    <wordblock>
+        <word>harangue</word>
+        <meaning>a loud bombastic declamation expressed with strong emotion</meaning>
+    </wordblock>
+    <wordblock>
+        <word>homogeneous</word>
+        <meaning>all of the same or similar kind or nature</meaning>
+    </wordblock>
+    <wordblock>
+        <word>hyperbole</word>
+        <meaning>extravagant exaggeration</meaning>
+    </wordblock>
+    <wordblock>
+        <word>iconoclastic</word>
+        <meaning>characterized by attack on established beliefs</meaning>
+    </wordblock>
+    <wordblock>
+        <word>idolatry</word>
+        <meaning>the worship of idols or images that are not God</meaning>
+    </wordblock>
+    <wordblock>
+        <word>immutable</word>
+        <meaning>not subject or susceptible to change or variation</meaning>
+    </wordblock>
+    <wordblock>
+        <word>impair</word>
+        <meaning>make worse or less effective</meaning>
+    </wordblock>
+    <wordblock>
+        <word>impassive</word>
+        <meaning>having or revealing little emotion or sensibility</meaning>
+    </wordblock>
+    <wordblock>
+        <word>impede</word>
+        <meaning>be a hindrance or obstacle to</meaning>
+    </wordblock>
+    <wordblock>
+        <word>impermeable</word>
+        <meaning>preventing especially liquids to pass or diffuse through</meaning>
+    </wordblock>
+    <wordblock>
+        <word>imperturbable</word>
+        <meaning>marked by extreme calm and composure</meaning>
+    </wordblock>
+    <wordblock>
+        <word>impervious</word>
+        <meaning>not admitting of passage or capable of being affected</meaning>
+    </wordblock>
+    <wordblock>
+        <word>implacable</word>
+        <meaning>incapable of being placated</meaning>
+    </wordblock>
+    <wordblock>
+        <word>implicit</word>
+        <meaning>implied though not directly expressed</meaning>
+    </wordblock>
+    <wordblock>
+        <word>implode</word>
+        <meaning>burst inward</meaning>
+    </wordblock>
+    <wordblock>
+        <word>inadvertently</word>
+        <meaning>without knowledge or intention</meaning>
+    </wordblock>
+    <wordblock>
+        <word>inchoate</word>
+        <meaning>only partly in existence; imperfectly formed</meaning>
+    </wordblock>
+    <wordblock>
+        <word>incongruity</word>
+        <meaning>the quality of disagreeing</meaning>
+    </wordblock>
+    <wordblock>
+        <word>inconsequential</word>
+        <meaning>lacking worth or importance</meaning>
+    </wordblock>
+    <wordblock>
+        <word>incorporate</word>
+        <meaning>make into a whole or make part of a whole</meaning>
+    </wordblock>
+    <wordblock>
+        <word>indeterminate</word>
+        <meaning>not fixed or known in advance</meaning>
+    </wordblock>
+    <wordblock>
+        <word>indigence</word>
+        <meaning>a state of extreme poverty or destitution</meaning>
+    </wordblock>
+    <wordblock>
+        <word>indolent</word>
+        <meaning>disinclined to work or exertion</meaning>
+    </wordblock>
+    <wordblock>
+        <word>inert</word>
+        <meaning>unable to move or resist motion</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ingenuous</word>
+        <meaning>lacking in sophistication or worldliness</meaning>
+    </wordblock>
+    <wordblock>
+        <word>inherent</word>
+        <meaning>existing as an essential constituent or characteristic</meaning>
+    </wordblock>
+    <wordblock>
+        <word>innocuous</word>
+        <meaning>not injurious to physical or mental health</meaning>
+    </wordblock>
+    <wordblock>
+        <word>insensible</word>
+        <meaning>barely able to be perceived</meaning>
+    </wordblock>
+    <wordblock>
+        <word>insinuate</word>
+        <meaning>give to understand</meaning>
+    </wordblock>
+    <wordblock>
+        <word>insipid</word>
+        <meaning>lacking interest or significance or impact</meaning>
+    </wordblock>
+    <wordblock>
+        <word>insularity</word>
+        <meaning>the state of being isolated or detached</meaning>
+    </wordblock>
+    <wordblock>
+        <word>intractable</word>
+        <meaning>difficult to manage or mold</meaning>
+    </wordblock>
+    <wordblock>
+        <word>intransigence</word>
+        <meaning>stubbornly refusing to compromise</meaning>
+    </wordblock>
+    <wordblock>
+        <word>inundate</word>
+        <meaning>fill or cover completely, usually with water</meaning>
+    </wordblock>
+    <wordblock>
+        <word>inured</word>
+        <meaning>made tough by habitual exposure</meaning>
+    </wordblock>
+    <wordblock>
+        <word>invective</word>
+        <meaning>abusive language used to express blame or censure</meaning>
+    </wordblock>
+    <wordblock>
+        <word>irascible</word>
+        <meaning>quickly aroused to anger</meaning>
+    </wordblock>
+    <wordblock>
+        <word>irresolute</word>
+        <meaning>uncertain how to act or proceed</meaning>
+    </wordblock>
+    <wordblock>
+        <word>itinerary</word>
+        <meaning>an established line of travel or access</meaning>
+    </wordblock>
+    <wordblock>
+        <word>laconic</word>
+        <meaning>brief and to the point</meaning>
+    </wordblock>
+    <wordblock>
+        <word>lassitude</word>
+        <meaning>a feeling of lack of interest or energy</meaning>
+    </wordblock>
+    <wordblock>
+        <word>latent</word>
+        <meaning>potentially existing but not presently evident or realized</meaning>
+    </wordblock>
+    <wordblock>
+        <word>laud</word>
+        <meaning>praise, glorify, or honor</meaning>
+    </wordblock>
+    <wordblock>
+        <word>lethargic</word>
+        <meaning>deficient in alertness or activity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>levee</word>
+        <meaning>an embankment built to prevent a river from overflowing</meaning>
+    </wordblock>
+    <wordblock>
+        <word>levity</word>
+        <meaning>a manner lacking seriousness</meaning>
+    </wordblock>
+    <wordblock>
+        <word>log</word>
+        <meaning>a segment of the trunk of a tree when stripped of branches</meaning>
+    </wordblock>
+    <wordblock>
+        <word>loquacious</word>
+        <meaning>full of trivial conversation</meaning>
+    </wordblock>
+    <wordblock>
+        <word>lucid</word>
+        <meaning>transparently clear; easily understandable</meaning>
+    </wordblock>
+    <wordblock>
+        <word>luminous</word>
+        <meaning>softly bright or radiant</meaning>
+    </wordblock>
+    <wordblock>
+        <word>magnanimity</word>
+        <meaning>liberality in bestowing gifts</meaning>
+    </wordblock>
+    <wordblock>
+        <word>malingerer</word>
+        <meaning>someone shirking duty by feigning illness or incapacity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>malleable</word>
+        <meaning>capable of being shaped or bent</meaning>
+    </wordblock>
+    <wordblock>
+        <word>maverick</word>
+        <meaning>someone who exhibits independence in thought and action</meaning>
+    </wordblock>
+    <wordblock>
+        <word>mendacious</word>
+        <meaning>given to lying</meaning>
+    </wordblock>
+    <wordblock>
+        <word>metamorphosis</word>
+        <meaning>striking change in appearance or character or circumstances</meaning>
+    </wordblock>
+    <wordblock>
+        <word>meticulous</word>
+        <meaning>marked by precise accordance with details</meaning>
+    </wordblock>
+    <wordblock>
+        <word>misanthrope</word>
+        <meaning>someone who dislikes people in general</meaning>
+    </wordblock>
+    <wordblock>
+        <word>mitigate</word>
+        <meaning>lessen or to try to lessen the seriousness or extent of</meaning>
+    </wordblock>
+    <wordblock>
+        <word>mollify</word>
+        <meaning>cause to be more favorably inclined</meaning>
+    </wordblock>
+    <wordblock>
+        <word>morose</word>
+        <meaning>showing a brooding ill humor</meaning>
+    </wordblock>
+    <wordblock>
+        <word>mundane</word>
+        <meaning>found in the ordinary course of events</meaning>
+    </wordblock>
+    <wordblock>
+        <word>negate</word>
+        <meaning>make ineffective by counterbalancing the effect of</meaning>
+    </wordblock>
+    <wordblock>
+        <word>neophyte</word>
+        <meaning>any new participant in some activity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>obdurate</word>
+        <meaning>stubbornly persistent in wrongdoing</meaning>
+    </wordblock>
+    <wordblock>
+        <word>obsequious</word>
+        <meaning>attempting to win favor from influential people by flattery</meaning>
+    </wordblock>
+    <wordblock>
+        <word>obviate</word>
+        <meaning>do away with</meaning>
+    </wordblock>
+    <wordblock>
+        <word>occlude</word>
+        <meaning>block passage through</meaning>
+    </wordblock>
+    <wordblock>
+        <word>officious</word>
+        <meaning>intrusive in a meddling or offensive manner</meaning>
+    </wordblock>
+    <wordblock>
+        <word>onerous</word>
+        <meaning>not easily borne; wearing</meaning>
+    </wordblock>
+    <wordblock>
+        <word>opprobrium</word>
+        <meaning>a state of extreme dishonor</meaning>
+    </wordblock>
+    <wordblock>
+        <word>oscillate</word>
+        <meaning>move or swing from side to side regularly</meaning>
+    </wordblock>
+    <wordblock>
+        <word>ostentatious</word>
+        <meaning>intended to attract notice and impress others</meaning>
+    </wordblock>
+    <wordblock>
+        <word>paragon</word>
+        <meaning>a perfect embodiment of a concept</meaning>
+    </wordblock>
+    <wordblock>
+        <word>partisan</word>
+        <meaning>a fervent and even militant proponent of something</meaning>
+    </wordblock>
+    <wordblock>
+        <word>pathological</word>
+        <meaning>relating to the study of diseases</meaning>
+    </wordblock>
+    <wordblock>
+        <word>paucity</word>
+        <meaning>an insufficient quantity or number</meaning>
+    </wordblock>
+    <wordblock>
+        <word>pedantic</word>
+        <meaning>marked by a narrow focus on or display of learning</meaning>
+    </wordblock>
+    <wordblock>
+        <word>penchant</word>
+        <meaning>a strong liking</meaning>
+    </wordblock>
+    <wordblock>
+        <word>penury</word>
+        <meaning>a state of extreme poverty or destitution</meaning>
+    </wordblock>
+    <wordblock>
+        <word>perennial</word>
+        <meaning>lasting three seasons or more</meaning>
+    </wordblock>
+    <wordblock>
+        <word>perfidious</word>
+        <meaning>tending to betray</meaning>
+    </wordblock>
+    <wordblock>
+        <word>perfunctory</word>
+        <meaning>hasty and without attention to detail; not thorough</meaning>
+    </wordblock>
+    <wordblock>
+        <word>permeable</word>
+        <meaning>allowing fluids or gases to pass or diffuse through</meaning>
+    </wordblock>
+    <wordblock>
+        <word>pervasive</word>
+        <meaning>spreading or spread throughout</meaning>
+    </wordblock>
+    <wordblock>
+        <word>phlegmatic</word>
+        <meaning>showing little emotion</meaning>
+    </wordblock>
+    <wordblock>
+        <word>piety</word>
+        <meaning>righteousness by virtue of being pious</meaning>
+    </wordblock>
+    <wordblock>
+        <word>placate</word>
+        <meaning>cause to be more favorably inclined</meaning>
+    </wordblock>
+    <wordblock>
+        <word>plasticity</word>
+        <meaning>the property of being physically malleable</meaning>
+    </wordblock>
+    <wordblock>
+        <word>platitude</word>
+        <meaning>a trite or obvious remark</meaning>
+    </wordblock>
+    <wordblock>
+        <word>plethora</word>
+        <meaning>extreme excess</meaning>
+    </wordblock>
+    <wordblock>
+        <word>plummet</word>
+        <meaning>drop sharply</meaning>
+    </wordblock>
+    <wordblock>
+        <word>porous</word>
+        <meaning>full of vessels or holes</meaning>
+    </wordblock>
+    <wordblock>
+        <word>pragmatic</word>
+        <meaning>concerned with practical matters</meaning>
+    </wordblock>
+    <wordblock>
+        <word>preamble</word>
+        <meaning>a preliminary introduction to a statute or constitution</meaning>
+    </wordblock>
+    <wordblock>
+        <word>precarious</word>
+        <meaning>not secure; beset with difficulties</meaning>
+    </wordblock>
+    <wordblock>
+        <word>precipitate</word>
+        <meaning>bring about abruptly</meaning>
+    </wordblock>
+    <wordblock>
+        <word>precursor</word>
+        <meaning>something indicating the approach of something or someone</meaning>
+    </wordblock>
+    <wordblock>
+        <word>presumptuous</word>
+        <meaning>excessively forward</meaning>
+    </wordblock>
+    <wordblock>
+        <word>prevaricate</word>
+        <meaning>be deliberately ambiguous or unclear</meaning>
+    </wordblock>
+    <wordblock>
+        <word>pristine</word>
+        <meaning>immaculately clean and unused</meaning>
+    </wordblock>
+    <wordblock>
+        <word>probity</word>
+        <meaning>complete and confirmed integrity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>problematic</word>
+        <meaning>making great mental demands</meaning>
+    </wordblock>
+    <wordblock>
+        <word>prodigal</word>
+        <meaning>recklessly wasteful</meaning>
+    </wordblock>
+    <wordblock>
+        <word>profound</word>
+        <meaning>situated at or extending to great depth</meaning>
+    </wordblock>
+    <wordblock>
+        <word>prohibitive</word>
+        <meaning>tending to discourage, especially of prices</meaning>
+    </wordblock>
+    <wordblock>
+        <word>proliferate</word>
+        <meaning>grow rapidly</meaning>
+    </wordblock>
+    <wordblock>
+        <word>propensity</word>
+        <meaning>a natural inclination</meaning>
+    </wordblock>
+    <wordblock>
+        <word>propitiate</word>
+        <meaning>make peace with</meaning>
+    </wordblock>
+    <wordblock>
+        <word>propriety</word>
+        <meaning>correct behavior</meaning>
+    </wordblock>
+    <wordblock>
+        <word>proscribe</word>
+        <meaning>command against</meaning>
+    </wordblock>
+    <wordblock>
+        <word>pungent</word>
+        <meaning>strong and sharp</meaning>
+    </wordblock>
+    <wordblock>
+        <word>qualified</word>
+        <meaning>meeting the proper standards and requirements for a task</meaning>
+    </wordblock>
+    <wordblock>
+        <word>quibble</word>
+        <meaning>evade the truth of a point by raising irrelevant objections</meaning>
+    </wordblock>
+    <wordblock>
+        <word>quiescent</word>
+        <meaning>being quiet or still or inactive</meaning>
+    </wordblock>
+    <wordblock>
+        <word>rarefied</word>
+        <meaning>of high moral or intellectual value</meaning>
+    </wordblock>
+    <wordblock>
+        <word>recalcitrant</word>
+        <meaning>stubbornly resistant to authority or control</meaning>
+    </wordblock>
+    <wordblock>
+        <word>recant</word>
+        <meaning>formally reject or disavow a formerly held belief</meaning>
+    </wordblock>
+    <wordblock>
+        <word>recluse</word>
+        <meaning>one who lives in solitude</meaning>
+    </wordblock>
+    <wordblock>
+        <word>recondite</word>
+        <meaning>difficult to penetrate</meaning>
+    </wordblock>
+    <wordblock>
+        <word>refractory</word>
+        <meaning>stubbornly resistant to authority or control</meaning>
+    </wordblock>
+    <wordblock>
+        <word>refute</word>
+        <meaning>overthrow by argument, evidence, or proof</meaning>
+    </wordblock>
+    <wordblock>
+        <word>relegate</word>
+        <meaning>assign to a lower position</meaning>
+    </wordblock>
+    <wordblock>
+        <word>reproach</word>
+        <meaning>express criticism towards</meaning>
+    </wordblock>
+    <wordblock>
+        <word>reprobate</word>
+        <meaning>a person without moral scruples</meaning>
+    </wordblock>
+    <wordblock>
+        <word>repudiate</word>
+        <meaning>refuse to acknowledge, ratify, or recognize as valid</meaning>
+    </wordblock>
+    <wordblock>
+        <word>rescind</word>
+        <meaning>cancel officially</meaning>
+    </wordblock>
+    <wordblock>
+        <word>resolution</word>
+        <meaning>a decision to do something or to behave in a certain manner</meaning>
+    </wordblock>
+    <wordblock>
+        <word>resolve</word>
+        <meaning>find a solution or answer</meaning>
+    </wordblock>
+    <wordblock>
+        <word>reticent</word>
+        <meaning>reluctant to draw attention to yourself</meaning>
+    </wordblock>
+    <wordblock>
+        <word>reverent</word>
+        <meaning>feeling or showing profound respect or veneration</meaning>
+    </wordblock>
+    <wordblock>
+        <word>sage</word>
+        <meaning>a mentor in spiritual and philosophical topics</meaning>
+    </wordblock>
+    <wordblock>
+        <word>salubrious</word>
+        <meaning>promoting health</meaning>
+    </wordblock>
+    <wordblock>
+        <word>sanction</word>
+        <meaning>official permission or approval</meaning>
+    </wordblock>
+    <wordblock>
+        <word>satiate</word>
+        <meaning>fill to satisfaction</meaning>
+    </wordblock>
+    <wordblock>
+        <word>saturate</word>
+        <meaning>infuse or fill completely</meaning>
+    </wordblock>
+    <wordblock>
+        <word>savor</word>
+        <meaning>the taste experience when a savoury condiment is tasted</meaning>
+    </wordblock>
+    <wordblock>
+        <word>secrete</word>
+        <meaning>generate and separate from cells or bodily fluids</meaning>
+    </wordblock>
+    <wordblock>
+        <word>shard</word>
+        <meaning>a broken piece of a brittle artifact</meaning>
+    </wordblock>
+    <wordblock>
+        <word>skeptic</word>
+        <meaning>someone who habitually doubts accepted beliefs</meaning>
+    </wordblock>
+    <wordblock>
+        <word>solicitous</word>
+        <meaning>full of anxiety and concern</meaning>
+    </wordblock>
+    <wordblock>
+        <word>soporific</word>
+        <meaning>sleep inducing</meaning>
+    </wordblock>
+    <wordblock>
+        <word>specious</word>
+        <meaning>plausible but false</meaning>
+    </wordblock>
+    <wordblock>
+        <word>spectrum</word>
+        <meaning>a broad range of related objects or values or qualities</meaning>
+    </wordblock>
+    <wordblock>
+        <word>sporadic</word>
+        <meaning>recurring in scattered or unpredictable instances</meaning>
+    </wordblock>
+    <wordblock>
+        <word>stigma</word>
+        <meaning>a symbol of disgrace or infamy</meaning>
+    </wordblock>
+    <wordblock>
+        <word>stint</word>
+        <meaning>supply sparingly and with restricted quantities</meaning>
+    </wordblock>
+    <wordblock>
+        <word>stipulate</word>
+        <meaning>make an express demand or provision in an agreement</meaning>
+    </wordblock>
+    <wordblock>
+        <word>stolid</word>
+        <meaning>having or revealing little emotion or sensibility</meaning>
+    </wordblock>
+    <wordblock>
+        <word>striate</word>
+        <meaning>marked with stripes</meaning>
+    </wordblock>
+    <wordblock>
+        <word>strut</word>
+        <meaning>to walk with a lofty proud gait</meaning>
+    </wordblock>
+    <wordblock>
+        <word>subpoena</word>
+        <meaning>a writ issued to compel the attendance of a witness</meaning>
+    </wordblock>
+    <wordblock>
+        <word>subside</word>
+        <meaning>sink to a lower level or form a depression</meaning>
+    </wordblock>
+    <wordblock>
+        <word>substantiate</word>
+        <meaning>establish or strengthen as with new evidence or facts</meaning>
+    </wordblock>
+    <wordblock>
+        <word>supersede</word>
+        <meaning>take the place or move into the position of</meaning>
+    </wordblock>
+    <wordblock>
+        <word>supposition</word>
+        <meaning>the cognitive process of conjecturing</meaning>
+    </wordblock>
+    <wordblock>
+        <word>tacit</word>
+        <meaning>implied by or inferred from actions or statements</meaning>
+    </wordblock>
+    <wordblock>
+        <word>tangential</word>
+        <meaning>of superficial relevance if any</meaning>
+    </wordblock>
+    <wordblock>
+        <word>tenuous</word>
+        <meaning>very thin in gauge or diameter</meaning>
+    </wordblock>
+    <wordblock>
+        <word>tirade</word>
+        <meaning>a speech of violent denunciation</meaning>
+    </wordblock>
+    <wordblock>
+        <word>torpor</word>
+        <meaning>a state of motor and mental inactivity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>tortuous</word>
+        <meaning>marked by repeated turns and bends</meaning>
+    </wordblock>
+    <wordblock>
+        <word>tractable</word>
+        <meaning>easily managed</meaning>
+    </wordblock>
+    <wordblock>
+        <word>transgression</word>
+        <meaning>the violation of a law or a duty or moral principle</meaning>
+    </wordblock>
+    <wordblock>
+        <word>truculence</word>
+        <meaning>obstreperous and defiant aggressiveness</meaning>
+    </wordblock>
+    <wordblock>
+        <word>unwarranted</word>
+        <meaning>incapable of being justified or explained</meaning>
+    </wordblock>
+    <wordblock>
+        <word>vacillate</word>
+        <meaning>be undecided about something</meaning>
+    </wordblock>
+    <wordblock>
+        <word>venerate</word>
+        <meaning>regard with feelings of respect and reverence</meaning>
+    </wordblock>
+    <wordblock>
+        <word>veracious</word>
+        <meaning>habitually speaking the truth</meaning>
+    </wordblock>
+    <wordblock>
+        <word>verbose</word>
+        <meaning>using or containing too many words</meaning>
+    </wordblock>
+    <wordblock>
+        <word>viable</word>
+        <meaning>capable of life or normal growth and development</meaning>
+    </wordblock>
+    <wordblock>
+        <word>viscous</word>
+        <meaning>having a relatively high resistance to flow</meaning>
+    </wordblock>
+    <wordblock>
+        <word>vituperative</word>
+        <meaning>marked by harshly abusive criticism</meaning>
+    </wordblock>
+    <wordblock>
+        <word>volatile</word>
+        <meaning>substance that changes readily from solid or liquid to vapor</meaning>
+    </wordblock>
+    <wordblock>
+        <word>wary</word>
+        <meaning>marked by keen caution and watchful prudence</meaning>
+    </wordblock>
+    <wordblock>
+        <word>welter</word>
+        <meaning>a confused multitude of things</meaning>
+    </wordblock>
+    <wordblock>
+        <word>whimsical</word>
+        <meaning>determined by chance or impulse rather than by necessity</meaning>
+    </wordblock>
+    <wordblock>
+        <word>zealot</word>
+        <meaning>a fervent and even militant proponent of something</meaning>
+    </wordblock>
 </wordslist>
