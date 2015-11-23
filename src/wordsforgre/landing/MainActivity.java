@@ -150,7 +150,7 @@ public class MainActivity extends ActionBarActivity implements
 			fragmentManager
 			.beginTransaction()
 			.replace(R.id.container,
-					new MainFragment()).commit();
+					new RandomWordsFragment()).commit();
 			break;
 		}
 	}

@@ -10,7 +10,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class AllWordsActivity extends ActionBarActivity implements OnFragmentInteractionListener{
+public class AllWordsActivity extends ActionBarActivity implements OnFragmentInteractionListener {
 	
 //	private ArrayList<Word> words;
 	AllWordsDbQuery allWords;
@@ -54,4 +54,5 @@ public class AllWordsActivity extends ActionBarActivity implements OnFragmentInt
 	public void onFragmentInteraction(int mnuId, long l) {
 		// TODO ??????
 	}
+
 }

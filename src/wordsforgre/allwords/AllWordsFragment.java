@@ -35,7 +35,7 @@ public class AllWordsFragment extends ListFragment {
 		rwlt.execute();
 
 	    adapter = new AllWordsAdapter(getActivity(),
-                R.layout.all_words_fragment);
+                R.layout.all_words_fragment, getFragmentManager());
         setListAdapter(adapter);
 	}
 	

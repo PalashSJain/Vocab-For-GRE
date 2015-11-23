@@ -1,8 +1,8 @@
-package wordsforgre.landing;
+package wordsforgre.words;
 
 import wordsforgre.database.AllWordsDbQuery;
+import wordsforgre.landing.R;
 import wordsforgre.utils.Config;
-import wordsforgre.words.Word;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,14 +15,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainFragment extends Fragment {
+public class WordFragment extends Fragment {
 
-	public MainFragment() {
-	}
+	Word w = null;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public WordFragment(Word word) {
+		this.w = word;
 	}
 
 	@Override
@@ -31,10 +29,12 @@ public class MainFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_main, container,
 				false);
 
-		AllWordsDbQuery allWords = new AllWordsDbQuery(getContext());
-		allWords.open();
-		final Word w = allWords.getRandomWord();
-		allWords.close();
+		if (w == null) {
+			AllWordsDbQuery allWords = new AllWordsDbQuery(getContext());
+			allWords.open();
+			w = allWords.getRandomWord();
+			allWords.close();
+		}
 
 		TextView tvWord = (TextView) rootView.findViewById(R.id.tvMainWord);
 		tvWord.setText(w.word.toUpperCase());
@@ -62,8 +62,7 @@ public class MainFragment extends Fragment {
 				});
 				thread.start();
 				getFragmentManager().beginTransaction()
-						.replace(R.id.container, new MainFragment())
-						.commit();
+						.replace(R.id.container, new WordFragment(w)).commit();
 				llOptions.setVisibility(View.GONE);
 			}
 		});
@@ -80,16 +79,7 @@ public class MainFragment extends Fragment {
 		TextView tvMeaning = (TextView) rootView
 				.findViewById(R.id.tvMainMeaning);
 		tvMeaning.setText(w.meaning);
-		
-		rootView.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				getFragmentManager().beginTransaction()
-				.replace(R.id.container, new MainFragment())
-				.commit();
-			}
-		});
-		
+
 		rootView.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
@@ -123,5 +113,4 @@ public class MainFragment extends Fragment {
 
 		return rootView;
 	}
-
 }
