@@ -22,7 +22,7 @@ public class Config {
 	// Colors
 	public static final int COLOR_DEFAULT = Color.rgb(91, 146, 229);
 	public static final int COLOR_GOOD = Color.rgb(3, 192, 60); //03C03C
+	public static final int COLOR_BAD = Color.rgb(255, 140, 0); // ffd700 
 	public static final int COLOR_UGLY = Color.rgb(227, 38, 54);
-	public static final int COLOR_BAD = Color.rgb(255, 191, 0);
 	
 }
