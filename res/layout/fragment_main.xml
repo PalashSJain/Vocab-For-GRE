@@ -17,6 +17,7 @@
         android:visibility="gone" >
 
         <ImageButton
+            android:contentDescription="[edit word]"
             android:id="@+id/imageEditWord"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -25,6 +26,7 @@
             android:src="@android:drawable/ic_menu_edit" />
 
         <ImageButton
+            android:contentDescription="[delete word]"
             android:id="@+id/imageDeleteWord"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

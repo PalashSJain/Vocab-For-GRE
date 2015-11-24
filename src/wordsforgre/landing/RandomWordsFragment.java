@@ -1,5 +1,7 @@
 package wordsforgre.landing;
 
+import java.util.Locale;
+
 import wordsforgre.database.AllWordsDbQuery;
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
@@ -47,7 +49,7 @@ public class RandomWordsFragment extends Fragment {
 		allWords.close();
 
 		TextView tvWord = (TextView) rootView.findViewById(R.id.tvMainWord);
-		tvWord.setText(w.word.toUpperCase());
+		tvWord.setText(w.word.toUpperCase(Locale.getDefault()));
 
 		llOptions = (LinearLayout) rootView.findViewById(R.id.expandedOptions);
 		ImageButton ibDelete = (ImageButton) rootView

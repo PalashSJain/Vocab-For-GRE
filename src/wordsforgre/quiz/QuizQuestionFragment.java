@@ -36,8 +36,6 @@ public class QuizQuestionFragment extends Fragment {
 	protected Map<String, Integer> categoryAndSizes;
 
 	public QuizQuestionFragment() {
-		// TODO Auto-generated constructor stub
-		// this.words = getWordsFromSomewhere();
 	}
 	
 	@Override
@@ -174,10 +172,7 @@ public class QuizQuestionFragment extends Fragment {
 		dataSet.setSliceSpace(2f);
 		dataSet.setSelectionShift(5f);
 		dataSet.setColors(colors);
-
-//		dataSet.setColors(new int[] { Config.COLOR_BLUE, Config.COLOR_GREEN,
-//				Config.COLOR_YELLOW, Config.COLOR_RED });
-		// dataSet.setSelectionShift(0f);
+//		dataSet.setDrawValues(false);
 
 		PieData data = new PieData(xVals, dataSet);
 		data.setValueFormatter(new PercentFormatter());
@@ -185,6 +180,7 @@ public class QuizQuestionFragment extends Fragment {
 		data.setValueTextColor(Color.BLACK);
 		data.setValueTypeface(tf);
 		mChart.setData(data);
+//		mChart.setDrawSliceText(false);
 
 		// undo all highlights
 		mChart.highlightValues(null);

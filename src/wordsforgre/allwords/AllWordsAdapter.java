@@ -1,5 +1,7 @@
 package wordsforgre.allwords;
 
+import java.util.Locale;
+
 import wordsforgre.landing.R;
 import wordsforgre.utils.Config;
 import wordsforgre.words.Word;
@@ -46,7 +48,7 @@ public class AllWordsAdapter extends ArrayAdapter<Word> implements Filterable {
 		}
 
 		final Word word = getItem(pos);
-		holder.tvWord.setText(word.word.toUpperCase());
+		holder.tvWord.setText(word.word.toUpperCase(Locale.getDefault()));
 		holder.tvMeaning.setText(word.meaning);
 
 		if (pos % 2 == 1) {
