@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" >
 
-    <string name="app_name">Basic Vocab</string>
-    <string name="app_name_and_version">Basic Vocab 1.0.0</string>
+    <string name="app_name">Vocab for GRE</string>
+    <string name="app_name_and_version">Vocab for GRE 1.0.0</string>
     <string name="title_quiz">Quiz</string>
     <string name="title_all_words">All Words</string>
     <string name="title_about">About</string>
